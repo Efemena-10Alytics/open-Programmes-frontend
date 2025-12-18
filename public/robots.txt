@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nebiant.com/sitemap.xml
+
+# Block any admin or private areas if you have them
+# Disallow: /admin/
+# Disallow: /private/
