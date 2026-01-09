@@ -1,3 +1,5 @@
+'use client';
+
 import { config } from "../../config";
 
 const MasterClass = () => {
@@ -123,15 +125,13 @@ const MasterClass = () => {
                 Click Here to Register
               </a>
              */}
-              <a
+              <button
                 onClick={handleOpenForm}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="w-full text-center rounded-full text-[15px] font-bold px-6 py-3"
                 style={styles.button}
               >
                 Join Our Community
-              </a>
+              </button>
             </div>
           </div>
         </div>
