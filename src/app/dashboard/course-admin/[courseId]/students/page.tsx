@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import CourseAdminStudents from '@/components/pages/dashboard/CourseAdminStudents'
 
 interface PageProps {
@@ -6,9 +7,26 @@ interface PageProps {
   }>
 }
 
+function CourseAdminStudentsFallback() {
+  return (
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+        <div className="flex justify-center my-8">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-white"></div>
+        </div>
+        <h1 className="text-2xl font-bold text-blue-600 mb-2">Loading...</h1>
+      </div>
+    </div>
+  )
+}
+
 export default async function CourseAdminStudentsPage(props: PageProps) {
   const params = await props.params
   const { courseId } = params
   
-  return <CourseAdminStudents />
+  return (
+    <Suspense fallback={<CourseAdminStudentsFallback />}>
+      <CourseAdminStudents />
+    </Suspense>
+  )
 }
