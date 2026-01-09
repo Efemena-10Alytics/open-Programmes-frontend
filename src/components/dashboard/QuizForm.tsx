@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { Quiz } from "../../types";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";

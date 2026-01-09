@@ -440,4 +440,4 @@ const LessonDetails = () => {
   );
 };
 
-export default ProtectedRoute(LessonDetails);
+export default LessonDetails;

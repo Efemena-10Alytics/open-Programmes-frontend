@@ -1,24 +1,31 @@
-// components/ProtectedRoute.tsx
+"use client";
 
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import Loader from "@/components/utilities/Loader";
 
-export function ProtectedRoute(WrappedComponent: React.ComponentType) {
-  return function WithProtection(props: any) {
-    const { isAuthenticated } = useAuth();
-    const navigate = useNavigate();
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+}
 
-    useEffect(() => {
-      if (!isAuthenticated) {
-        navigate("/login");
-      }
-    }, [isAuthenticated, navigate]);
+export function ProtectedRoute({ children }: ProtectedRouteProps) {
+  const { isAuthenticated, isLoading } = useAuth();
+  const router = useRouter();
 
-    if (!isAuthenticated) {
-      return <div>Loading...</div>; // or a loading spinner
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      router.push("/login");
     }
+  }, [isAuthenticated, isLoading, router]);
 
-    return <WrappedComponent {...props} />;
-  };
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
+  return <>{children}</>;
 }

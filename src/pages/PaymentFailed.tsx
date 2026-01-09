@@ -1,6 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useRouter, useSearchParams } from "next/navigation";
 import api from "../lib/api";
+import { ProtectedRoute } from "@/components/utilities/ProtectedRoute";
 
 const Spinner = () => (
   <div className="flex justify-center my-8">
@@ -26,13 +29,12 @@ const FailedCross = () => (
   </svg>
 );
 
-export const PaymentFailed = () => {
+const PaymentFailed = () => {
   const [status, setStatus] = useState<"verifying" | "failed" | "recovered">("verifying");
-  const location = useLocation();
-  const navigate = useNavigate();
-  const params = new URLSearchParams(location.search);
-  const reference = params.get("reference");
-  const reason = params.get("reason");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const reference = searchParams?.get("reference");
+  const reason = searchParams?.get("reason");
 
   useEffect(() => {
     const verifyPayment = async () => {
@@ -40,7 +42,7 @@ export const PaymentFailed = () => {
         const { data } = await api.get(`/api/verify?reference=${reference}`);
         if (data.status === "success") {
           setStatus("recovered");
-          setTimeout(() => navigate("/dashboard"), 3000);
+          setTimeout(() => router.push("/dashboard"), 3000);
         } else {
           setStatus("failed");
         }
@@ -51,7 +53,7 @@ export const PaymentFailed = () => {
 
     if (reference) verifyPayment();
     else setStatus("failed");
-  }, [reference, navigate]);
+  }, [reference, router]);
 
   const getErrorMessage = () => {
     if (reason === "verification") return "Payment verification timeout";
@@ -92,7 +94,7 @@ export const PaymentFailed = () => {
             
             <div className="space-y-4">
               <button
-                onClick={() => navigate("/courses")}
+                onClick={() => router.push("/courses")}
                 className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold
                   hover:bg-red-600 transition-colors"
               >
@@ -100,7 +102,7 @@ export const PaymentFailed = () => {
               </button>
               
               <button
-                onClick={() => navigate("/support")}
+                onClick={() => router.push("/support")}
                 className="w-full border border-red-500 text-red-500 py-3 rounded-lg
                   font-semibold hover:bg-red-50 transition-colors"
               >
@@ -117,3 +119,5 @@ export const PaymentFailed = () => {
     </div>
   );
 };
+
+export default PaymentFailed;

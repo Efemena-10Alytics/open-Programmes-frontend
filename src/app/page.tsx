@@ -1,5 +1,11 @@
-import Home from '@/pages/Home'
+// app/page.tsx
+import { MainLayout } from '@/components/Layouts';
+import Home from '@/pages/Home';
 
 export default function HomePage() {
-  return <Home />
+  return (
+    <MainLayout>
+      <Home />
+    </MainLayout>
+  );
 }

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useCallback } from "react";
 import SkillLabel from "./SkillLabel";
 import Link from "next/link";

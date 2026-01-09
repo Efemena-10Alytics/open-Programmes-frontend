@@ -1,8 +1,10 @@
+"use client"
 import { Formik, Form } from "formik";
 import { useContext, useState } from "react";
 import * as Yup from "yup";
 import TextInput from "../../components/utilities/TextInput";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { notification } from "antd";
 import { useAuth } from "../../contexts/AuthContext";
 import { forgetPassword, resetPassword } from "../../lib/auth";
@@ -14,7 +16,7 @@ type NotificationType = "success" | "info" | "warning" | "error";
 const ForgetPassword = () => {
   const [notificationApi, contextHolder] = notification.useNotification();
   const validatePassword = usePasswordValidation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [activeView, setActiveView] = useState({
     main: true,
     reset: false,
@@ -28,15 +30,19 @@ const ForgetPassword = () => {
 
   const openNotification = (type: NotificationType) => {
     notificationApi[type]({
-      message: `${
+      title: `${
         type === "success"
-          ? "Check you email"
-          : type === "error" && "Reset failed"
+          ? "Check your email"
+          : type === "error"
+          ? "Reset failed"
+          : ""
       }`,
       description: `${
         type === "success"
           ? "Please check your email, a code has been sent to you!"
-          : type === "error" && "Sorry! Something went wrong. Non-existent user"
+          : type === "error"
+          ? "Sorry! Something went wrong. Non-existent user"
+          : ""
       }`,
       // duration: 0,
     });
@@ -150,7 +156,7 @@ const ForgetPassword = () => {
                 if (status === 200) {
                   console.log("Password reset successful!");
                   openNotification("success");
-                  navigate("/login");
+                  router.push("/login");
                 } else if (status === 400) {
                   console.log("Password reset failed!");
                   openNotification("error");

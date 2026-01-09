@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import './globals.css'
 import { Inter } from 'next/font/google'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import Script from 'next/script'
@@ -9,6 +8,7 @@ import Providers from './providers/Providers'
 import MetaPixel from '@/components/MetaPixel'
 import MetaPixelNew from '@/components/MetaPixelNew'
 import { SessionNotification } from '@/components/SessionNotification'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

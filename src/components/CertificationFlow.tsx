@@ -1,14 +1,21 @@
-// @ts-nocheck
-
+"use client";
 import React, { useEffect, useState } from "react";
 
+type ViewState = {
+  ncda: boolean;
+  ncds: boolean;
+  ncba: boolean;
+};
+
+type ViewKey = keyof ViewState;
+
 const CertificationFlow = () => {
-  const [activeView, setActiveView] = useState({
+  const [activeView, setActiveView] = useState<ViewState>({
     ncda: true,
     ncds: false,
     ncba: false,
   });
-  const viewOrder = ["ncda", "ncds", "ncba"];
+  const viewOrder: ViewKey[] = ["ncda", "ncds", "ncba"];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -21,17 +28,21 @@ const CertificationFlow = () => {
         const nextIndex = (currentIndex + 1) % viewOrder.length;
 
         // Construct the new active view state
-        const newActiveView = viewOrder.reduce((acc, view, index) => {
-          acc[view] = index === nextIndex;
-          return acc;
-        }, {} as Record<string, boolean>);
+        const newActiveView: ViewState = {
+          ncda: false,
+          ncds: false,
+          ncba: false,
+        };
+        
+        newActiveView[viewOrder[nextIndex]] = true;
 
         return newActiveView;
       });
-    }, 6000); // 5 seconds interval
+    }, 6000); // 6 seconds interval
 
     return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
+
   return (
     <section className="bg-black text-[#828282]">
       <div
@@ -41,7 +52,7 @@ const CertificationFlow = () => {
       >
         <div className="lg:flex-[0.5] pl-[4%] pr-[2%] lg:pr-0">
           <h1 className="text-[37px] font-bold leading-[45px] text-white mb-5">
-            Our Certification 
+            Our Certification 
           </h1>
           <div className="flex flex-col gap-5">
             <div className="flex gap-4">

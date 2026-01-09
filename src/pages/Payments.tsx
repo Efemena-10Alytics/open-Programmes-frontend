@@ -763,4 +763,4 @@ const PaymentPage = () => {
   );
 };
 
-export default ProtectedRoute(PaymentPage);
+export default PaymentPage;

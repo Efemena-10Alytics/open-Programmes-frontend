@@ -1,3 +1,4 @@
+"use client";
 import Button from "../utilities/Button";
 import Link from "next/link";
 import CoursesDropdown from "./dropdowns/CoursesDropdown";

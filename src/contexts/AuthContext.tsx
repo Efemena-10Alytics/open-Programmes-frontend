@@ -1,3 +1,4 @@
+"use client";
 import {
   createContext,
   useContext,
@@ -10,7 +11,6 @@ import UserModel from "../models/User";
 import { jwtDecode } from "jwt-decode";
 import api from "../lib/api";
 import { useQuery, QueryClient } from "@tanstack/react-query";
-import Loader from "../components/utilities/Loader";
 import { config } from "../config";
 
 interface AuthContextType {
@@ -66,7 +66,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const fetchUserDirectly = async (id: string) => {
     try {
-      setIsLoading(true);
       const response = await api.get(`/api/users/${id}`);
       const userData = response.data.data;
       setUser(userData);
@@ -74,8 +73,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch (error) {
       console.error("Error fetching user data:", error);
       throw error;
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -115,7 +112,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     checkAuth();
   }, []);
 
-  if (isLoading) return <Loader />;
+  // REMOVED: Don't return Loader from AuthProvider
+  // if (isLoading) return <Loader />;
 
   const login = async (userData: UserModel) => {
     setUser(userData);

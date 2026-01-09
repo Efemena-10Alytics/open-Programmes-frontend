@@ -1,7 +1,7 @@
 
 // Safely access environment variables with fallbacks and validation
 const getCloudName = (): string => {
-  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const cloudName =process.env.NEXT_PUBLIC_CLOUD_NAME;
   
   if (!cloudName) {
     console.warn('VITE_CLOUDINARY_CLOUD_NAME environment variable is not set');
@@ -12,7 +12,7 @@ const getCloudName = (): string => {
 };
 
 const getUploadPreset = (): string => {
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
   
   if (!uploadPreset) {
     console.warn('VITE_CLOUDINARY_UPLOAD_PRESET environment variable is not set');

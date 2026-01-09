@@ -1,8 +1,11 @@
+"use client";
+
 import axios from "axios";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import PasswordCheck from "../../components/utilities/PasswordCheck";
 import TextInput from "../../components/utilities/TextInput";
 import { useAuth } from "../../contexts/AuthContext";
@@ -13,7 +16,7 @@ import GoogleOAuth from "../../components/auth/GoogleOAuth";
 
 const Signup = () => {
   const { login: authLogin } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const validatePassword = usePasswordValidation();
 
   const [activeView, setActiveView] = useState({
@@ -128,7 +131,7 @@ const Signup = () => {
                       // Step 3: Set tokens and redirect
                       setTokens(user.access_token, refresh_token);
                       authLogin(user);
-                      navigate("/dashboard");
+                      router.push("/dashboard");
                     } catch (error) {
                       if (axios.isAxiosError(error) && error.response) {
                         const { status, data } = error.response;
@@ -294,7 +297,7 @@ const Signup = () => {
               </button>
 
               <p className="text-[#8C8CA1]">
-                Didn’t receive the code?{" "}
+                Didn't receive the code?{" "}
                 <Link href={""} className="text-primary">
                   Resend code
                 </Link>

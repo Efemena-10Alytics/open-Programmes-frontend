@@ -45,4 +45,4 @@ const dev: Config = {
 
 
 export const config: Config = 
-  import.meta.env.VITE_API_NODE_ENV === "development" ? dev : prod;
+  process.env.NEXT_PUBLIC_NODE_ENV === "development" ? dev : prod;

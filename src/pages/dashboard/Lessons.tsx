@@ -83,4 +83,4 @@ const Lessons = () => {
   );
 };
 
-export default ProtectedRoute(Lessons);
+export default Lessons;

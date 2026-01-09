@@ -1,5 +1,4 @@
 import { config } from "../config";
-import { useEffect, useState } from "react";
 
 const MasterClass2 = () => {
   const baseURL = config.url.API_URL;

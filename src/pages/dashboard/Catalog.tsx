@@ -1,3 +1,4 @@
+"use client";
 import useCourses from "../../hooks/api/useCourses";
 import CourseCard from "../../components/utilities/CourseCard";
 import { TabList, Tab, TabPanel, Tabs } from "react-tabs";

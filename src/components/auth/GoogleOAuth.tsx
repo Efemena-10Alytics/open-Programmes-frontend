@@ -1,12 +1,14 @@
+"use client";
+
 import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from '../../contexts/AuthContext';
 import { setTokens } from '../../lib/tokenStorage';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from "next/navigation";
 import api from '../../lib/api';
 
 const GoogleOAuth = ({ isLogin = false }: { isLogin?: boolean }) => {
   const { login: authLogin } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleSuccess = async (credentialResponse: any) => {
     try {
@@ -35,7 +37,7 @@ const GoogleOAuth = ({ isLogin = false }: { isLogin?: boolean }) => {
       // Handle authentication
       setTokens(user.access_token, refresh_token);
       authLogin(user);
-      navigate('/dashboard');
+      router.push('/dashboard');
     } catch (error) {
       console.error('Google authentication failed:', error);
     }

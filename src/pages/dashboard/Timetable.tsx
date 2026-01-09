@@ -1,3 +1,4 @@
+"use client";
 import { useQuery } from "@tanstack/react-query";
 import TimelineCalendar from "../../components/dashboard/TimelineCalendar";
 import ProgressBar from "../../components/utilities/ProgressBar";
@@ -366,4 +367,4 @@ const Timetable = () => {
   );
 };
 
-export default ProtectedRoute(Timetable);
+export default Timetable;

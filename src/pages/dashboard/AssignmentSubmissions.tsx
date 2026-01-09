@@ -1,6 +1,9 @@
-// components/assignments/AssignmentSubmissions.tsx (Updated for Quiz)
+// components/assignments/AssignmentSubmissions.tsx (Updated for Next.js App Router)
+'use client';
+
 import { useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../lib/api";
@@ -41,10 +44,13 @@ interface QuizSubmission {
   assignmentQuizAnswers: any[];
 }
 
-const AssignmentSubmissions = () => {
-  const { assignmentId } = useParams<{ assignmentId: string }>();
+interface AssignmentSubmissionsProps {
+  assignmentId: string;
+}
+
+const AssignmentSubmissions = ({ assignmentId }: AssignmentSubmissionsProps) => {
   const { user } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const queryClient = useQueryClient();
   const [selectedSubmission, setSelectedSubmission] = useState<Submission | null>(null);
   const [selectedQuizSubmission, setSelectedQuizSubmission] = useState<QuizSubmission | null>(null);
@@ -74,7 +80,6 @@ const AssignmentSubmissions = () => {
   const { data: quizSubmissions, isLoading: quizSubmissionsLoading } = useQuery({
     queryKey: ["assignmentQuizSubmissions", assignmentId],
     queryFn: async () => {
-      // You might need to create a new endpoint for this or modify existing one
       const response = await api.get(`/api/assignments/${assignmentId}/quiz-submissions`);
       return response.data.quizSubmissions;
     },
@@ -158,7 +163,7 @@ const AssignmentSubmissions = () => {
             </div>
             
             <button
-              onClick={() => navigate(`/dashboard/assignments/${assignmentId}`)}
+              onClick={() => router.push(`/dashboard/assignments/${assignmentId}`)}
               className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
             >
               View Assignment
@@ -367,6 +372,8 @@ const StudentInfoCell = ({ student }: any) => (
         src={student.image || "/default-avatar.png"}
         alt={student.name}
         className="w-8 h-8 rounded-full mr-3"
+        width={32}
+        height={32}
       />
       <div>
         <div className="text-sm font-medium text-gray-900">
@@ -387,7 +394,7 @@ const SubmissionContentCell = ({ submission }: any) => (
         <p className="truncate">{submission.content.substring(0, 100)}...</p>
       )}
       {submission.fileUrl && (
-        <a
+        <Link
           href={submission.fileUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -395,7 +402,7 @@ const SubmissionContentCell = ({ submission }: any) => (
         >
           <span>📎</span>
           <span>View File</span>
-        </a>
+        </Link>
       )}
     </div>
   </td>
@@ -475,7 +482,6 @@ const getSubmissionStatus = (submission: any) => {
 const SubmissionDetailModal = ({ submission, onClose }: any) => (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
     <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-      {/* Modal content for regular submission */}
       <div className="px-6 py-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900">
@@ -487,7 +493,66 @@ const SubmissionDetailModal = ({ submission, onClose }: any) => (
         </div>
       </div>
       <div className="p-6">
-        {/* Regular submission details */}
+        <div className="mb-6">
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Submitted Content</h3>
+          {submission.content && (
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <p className="text-gray-800 whitespace-pre-wrap">{submission.content}</p>
+            </div>
+          )}
+          {submission.fileUrl && (
+            <div className="mt-4">
+              <Link
+                href={submission.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-red-600 hover:text-red-800"
+              >
+                <span>📎</span>
+                <span>Download attached file</span>
+              </Link>
+            </div>
+          )}
+        </div>
+        
+        <div className="mb-6">
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Grading</h3>
+          {submission.grade !== undefined && submission.grade !== null ? (
+            <div className="space-y-4">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-medium text-green-900">Grade</h4>
+                    <div className="text-2xl font-bold text-green-800">
+                      {submission.grade}
+                      {submission.gradedBy && (
+                        <span className="text-sm font-normal text-green-700 ml-2">
+                          (Graded by {submission.gradedBy.name})
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-green-700">
+                      Graded on {submission.gradedAt ? new Date(submission.gradedAt).toLocaleDateString() : 'N/A'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {submission.feedback && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h4 className="font-medium text-blue-900 mb-2">Feedback</h4>
+                  <p className="text-blue-800">{submission.feedback}</p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <p className="text-yellow-800">This submission hasn't been graded yet.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+"use client";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import FlashBanner from "./FlashBanner";
@@ -7,8 +7,9 @@ import DashboardSidebar from "../dashboard/layout/DashboardSidebar";
 import { useState, useEffect } from "react";
 import MotivationCard from "../MotivationCard";
 import { useProgressTracking } from "../../contexts/ProgressTrackingContext";
+import { ProtectedRoute } from "../utilities/ProtectedRoute";
 
-export const Layout1 = () => {
+export const Layout1 = ({ children }: { children: React.ReactNode }) => {
   const { setShowMotivationCard } = useProgressTracking();
 
   const triggerMotivationCard = () => {
@@ -20,7 +21,7 @@ export const Layout1 = () => {
       {/* <FlashBanner /> */}
       <Navbar />
       <main>
-        <Outlet />
+        {children}
       </main>
       <Footer />
 
@@ -42,7 +43,7 @@ export const Layout1 = () => {
   );
 };
 
-export const DashboardLayout = () => {
+export const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { showMotivationCard, setShowMotivationCard } = useProgressTracking();
@@ -108,7 +109,7 @@ export const DashboardLayout = () => {
             isMobile && sidebarOpen ? "opacity-50" : "opacity-100"
           }`}
         >
-          <Outlet />
+         <ProtectedRoute>{children}</ProtectedRoute>;
         </div>
       </section>
 

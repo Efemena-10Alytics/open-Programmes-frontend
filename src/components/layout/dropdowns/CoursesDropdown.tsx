@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaInfo, FaQuestion, FaPhone, FaList } from "react-icons/fa";
@@ -25,7 +26,7 @@ const menu = (
       <div className="flex-[0.65]">
         <div className="flex flex-col text-[14px]">
           <NavLink
-            href="/courses"
+            to="/courses"
             exact={true}
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >
@@ -39,7 +40,7 @@ const menu = (
           </NavLink>
 
           <NavLink
-            href="/courses/clycxjlec00015a7iycm2cbdn"
+            to="/courses/clycxjlec00015a7iycm2cbdn"
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >
             <FaList color="" />
@@ -52,7 +53,7 @@ const menu = (
           </NavLink>
 
           <NavLink
-            href="/courses/clycxjxdz00025a7isah5z5yb"
+            to="/courses/clycxjxdz00025a7isah5z5yb"
             exact={true}
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >
@@ -66,7 +67,7 @@ const menu = (
           </NavLink>
 
           <NavLink
-            href="/courses/clycxiomd00005a7ifv6t8r5o"
+            to="/courses/clycxiomd00005a7ifv6t8r5o"
             exact={true}
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >

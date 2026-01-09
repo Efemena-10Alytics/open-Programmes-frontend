@@ -1,4 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { IoCloseOutline } from "react-icons/io5";
@@ -30,7 +32,7 @@ interface FreeCourseData {
 }
 
 const Popup = ({ isOpen, onClose }: PopupProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const baseURL = config.url.API_URL;
 
   const applyForFreeCourse = async (
@@ -48,7 +50,7 @@ const Popup = ({ isOpen, onClose }: PopupProps) => {
     mutationFn: (data: FreeCourseData) => applyForFreeCourse(data),
     onSuccess: () => {
       localStorage.setItem("hasFilledForm", "true");
-      navigate("/free-courses");
+      router.push("/free-courses");
     },
     onError: (error: AxiosError) => {
       console.error("Initiation failed:", error);
@@ -104,7 +106,7 @@ const Popup = ({ isOpen, onClose }: PopupProps) => {
                   })}
                   onSubmit={(values, { setSubmitting }) => {
                     mutation.mutate(values);
-                    // navigate("/free-courses");
+                    // router.push("/free-courses");
                   }}
                 >
                   {({ isSubmitting }) => (
@@ -499,7 +501,7 @@ const Home = () => {
             The average salary for a Data Scientist, according to the Bureau of
             Labor Statistics, is $100,000. According to the Bureau of Labor
             Statistics, by 2026, about 11.5 million jobs would be created for
-            data science. 
+            data science. 
           </p>
 
           {/* <div className="w-11/12 lg:w-full mx-auto"> */}

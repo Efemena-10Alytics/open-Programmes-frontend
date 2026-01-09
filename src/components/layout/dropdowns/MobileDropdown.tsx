@@ -1,3 +1,4 @@
+"use client";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { NavLink } from "../../utilities/NavLink";
 import { FaList } from "react-icons/fa";
@@ -62,7 +63,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/courses"
+                      to="/courses"
                       exact={true}
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
@@ -75,7 +76,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/courses/clycxjlec00015a7iycm2cbdn"
+                      to="/courses/clycxjlec00015a7iycm2cbdn"
                       exact={true}
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
@@ -88,7 +89,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/courses/clycxjxdz00025a7isah5z5yb"
+                      to="/courses/clycxjxdz00025a7isah5z5yb"
                       exact={true}
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
@@ -101,7 +102,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/courses/clycxiomd00005a7ifv6t8r5o"
+                      to="/courses/clycxiomd00005a7ifv6t8r5o"
                       exact={true}
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
@@ -132,7 +133,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/blog"
+                      to="/blog"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -144,7 +145,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/tech-guides"
+                      to="/tech-guides"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -156,7 +157,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/case-studies"
+                      to="/case-studies"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -168,7 +169,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/podcasts"
+                      to="/podcasts"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -198,7 +199,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/events"
+                      to="/events"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -210,7 +211,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/free-masterclass"
+                      to="/free-masterclass"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -222,7 +223,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/virtual-taster"
+                      to="/virtual-taster"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -234,7 +235,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/techxplore"
+                      to="/techxplore"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -264,7 +265,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/about"
+                      to="/about"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -276,7 +277,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/faqs"
+                      to="/faqs"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />
@@ -288,7 +289,7 @@ const MobileDropdown = ({ isOpen, setIsOpen }: Props) => {
                   <li>
                     <NavLink
                       onClick={() => setIsOpen(false)}
-                      href="/contact"
+                      to="/contact"
                       className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-2 rounded-lg"
                     >
                       <FaList color="" />

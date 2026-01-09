@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import { useProgressTracking } from "../contexts/ProgressTrackingContext";
 
 const messages = [
@@ -10,7 +12,7 @@ const messages = [
 ];
 
 const MotivationCard = ({ layoutType = "dashboard" }) => {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const {
     showMotivationCard,
     dismissMotivationCard,
@@ -21,10 +23,10 @@ const MotivationCard = ({ layoutType = "dashboard" }) => {
   const [visible, setVisible] = useState(false);
 
   // Don't show on lesson details page
-  const isLessonPage = pathname.includes("/dashboard/lessons/");
+  const isLessonPage = pathname?.includes("/dashboard/lessons/");
 
   // Determine which layout should show the card
-  const isDashboardRoute = pathname.includes("/dashboard");
+  const isDashboardRoute = pathname?.includes("/dashboard");
   const shouldShowCard =
     layoutType === "dashboard" ? isDashboardRoute : !isDashboardRoute;
 

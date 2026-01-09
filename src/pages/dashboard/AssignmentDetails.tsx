@@ -1,6 +1,9 @@
-// components/assignments/AssignmentDetails.tsx (Updated for Quiz Support + Clickable URLs)
+// components/assignments/AssignmentDetails.tsx (Updated for Next.js App Router)
+'use client';
+
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../lib/api";
@@ -9,10 +12,13 @@ import { useCloudinaryUpload } from "../../hooks/useCloudinaryUpload";
 import { cloudinaryConfig } from "../../config/cloudinary";
 import AssignmentQuizSubmission from "../../components/dashboard/classroom/AssignmentQuizSubmission";
 
-const AssignmentDetails = () => {
-  const { assignmentId } = useParams<{ assignmentId: string }>();
+interface AssignmentDetailsProps {
+  assignmentId: string;
+}
+
+const AssignmentDetails = ({ assignmentId }: AssignmentDetailsProps) => {
   const { user } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const queryClient = useQueryClient();
   const [submissionText, setSubmissionText] = useState("");
   const [submissionFile, setSubmissionFile] = useState<File | null>(null);
@@ -30,7 +36,7 @@ const AssignmentDetails = () => {
     return parts.map((part, index) => {
       if (part.match(urlRegex)) {
         return (
-          <a
+          <Link
             key={index}
             href={part}
             target="_blank"
@@ -38,7 +44,7 @@ const AssignmentDetails = () => {
             className="text-blue-600 hover:text-blue-800 underline break-words"
           >
             {part}
-          </a>
+          </Link>
         );
       }
       return <span key={index}>{part}</span>;
@@ -363,7 +369,7 @@ const AssignmentDetails = () => {
             {user?.role === "ADMIN" || user?.role === "COURSE_ADMIN" ? (
               <button
                 onClick={() =>
-                  navigate(`/dashboard/assignments/${assignmentId}/submissions`)
+                  router.push(`/dashboard/assignments/${assignmentId}/submissions`)
                 }
                 className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
               >
@@ -459,7 +465,7 @@ const AssignmentDetails = () => {
                   </h3>
                   <div className="space-y-2">
                     {assignment.attachments.map((attachment: any) => (
-                      <a
+                      <Link
                         key={attachment.id}
                         href={attachment.url}
                         target="_blank"
@@ -477,7 +483,7 @@ const AssignmentDetails = () => {
                             Click to download
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -690,7 +696,7 @@ const AssignmentDetails = () => {
                     <h3 className="text-lg font-medium text-gray-900 mb-2">
                       Uploaded File
                     </h3>
-                    <a
+                    <Link
                       href={userSubmission.fileUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -707,7 +713,7 @@ const AssignmentDetails = () => {
                           Click to open in new tab
                         </p>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 )}
 

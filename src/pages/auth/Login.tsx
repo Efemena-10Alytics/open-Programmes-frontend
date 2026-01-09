@@ -1,8 +1,10 @@
+"use client"
 import axios from "axios";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import TextInput from "../../components/utilities/TextInput";
 import { useAuth } from "../../contexts/AuthContext";
 import { login } from "../../lib/auth";
@@ -11,7 +13,7 @@ import GoogleOAuth from "../../components/auth/GoogleOAuth";
 
 const Login = () => {
   const { login: authLogin } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const [activeView, setActiveView] = useState({
     form: true,
@@ -39,7 +41,7 @@ const Login = () => {
                     Log Into Your Account
                   </h1>
                   <span className="text-[11px] text-[#A5A5A5] font-light">
-                    Don’t have an account?{" "}
+                    Don't have an account?{" "}
                     <Link href="/signup" className="text-primary font-medium">
                       Sign Up
                     </Link>
@@ -98,7 +100,7 @@ const Login = () => {
                       if (user) {
                         setTokens(user.access_token, refresh_token);
                         authLogin(user);
-                        navigate("/dashboard");
+                        router.push("/dashboard");
                       }
                     } catch (error) {
                       if (axios.isAxiosError(error) && error.response) {

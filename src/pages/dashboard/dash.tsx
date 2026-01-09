@@ -21,7 +21,7 @@ import Loader from "../../components/utilities/Loader";
 import { formatName } from "../../utils/formatName";
 
 const TOTAL_COURSE_FEE =
-  Number(import.meta.env.VITE_TOTAL_COURSE_FEE) || 250000;
+  Number(process.env.NEXT_PUBLIC_TOTAL_COURSE_FEE) || 250000;
 
 const EnrollBtn = () => {
   return (
@@ -744,4 +744,4 @@ const Dashboard = () => {
   );
 };
 
-export default ProtectedRoute(Dashboard);
+export default Dashboard;

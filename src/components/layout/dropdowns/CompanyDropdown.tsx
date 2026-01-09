@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 import { FaPhone, FaList } from "react-icons/fa";
@@ -12,7 +13,7 @@ const menu = (
       <div className="">
         <div className="flex flex-col text-[14px]">
           <NavLink
-            href="/about"
+            to="/about"
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >
             <FaList color="" />
@@ -25,7 +26,7 @@ const menu = (
           </NavLink>
 
           <NavLink
-            href="/faqs"
+            to="/faqs"
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >
             <FaList color="" />
@@ -37,7 +38,7 @@ const menu = (
             </div>
           </NavLink>
           <NavLink
-            href="/contact"
+            to="/contact"
             className="text-[#828282] flex items-center gap-4 w-full hover:bg-[#FFFFFF24] hover:text-[#FFFFFF] px-2 py-4 rounded-lg"
           >
             <PiPresentationChartFill size={19} />
