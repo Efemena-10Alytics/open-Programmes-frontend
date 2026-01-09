@@ -18,10 +18,10 @@ interface Config {
 
 const prod: Config = {
   url: {
-    API_URL: "https://nebiant-api-3ew3.onrender.com",
+    API_URL: "https://open-programmes-backend.onrender.com",
   },
   client_url: {
-    CLIENT_URL: "https://nebiant.com",
+    CLIENT_URL: "https://open-programmes-frontend.vercel.app",
   },
 
   env: {
