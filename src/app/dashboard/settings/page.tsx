@@ -1,4 +1,4 @@
-import Settings from '@/pages/dashboard/Settings'
+import Settings from '@/components/pages/dashboard/Settings'
 
 export default function ContactPage() {
   return <Settings/>

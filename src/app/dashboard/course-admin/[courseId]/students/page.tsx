@@ -1,4 +1,4 @@
-import CourseAdminStudents from '@/pages/dashboard/CourseAdminStudents'
+import CourseAdminStudents from '@/components/pages/dashboard/CourseAdminStudents'
 
 interface PageProps {
   params: Promise<{

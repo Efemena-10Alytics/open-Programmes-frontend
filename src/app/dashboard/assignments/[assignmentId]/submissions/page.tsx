@@ -1,4 +1,4 @@
-import AssignmentSubmissions from '@/pages/dashboard/AssignmentSubmissions'
+import AssignmentSubmissions from '@/components/pages/dashboard/AssignmentSubmissions'
 
 interface PageProps {
   params: Promise<{

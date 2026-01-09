@@ -1,4 +1,4 @@
-import PaymentSuccess from '@/pages/PaymentSuccess'
+import PaymentSuccess from '@/components/pages/PaymentSuccess'
 
 export default function ContactPage() {
   return <PaymentSuccess/>

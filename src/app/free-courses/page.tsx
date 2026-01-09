@@ -1,4 +1,4 @@
-import FreeCourses from '@/pages/FreeCourses'
+import FreeCourses from '@/components/pages/FreeCourses'
 
 export default function FreeCoursesPage() {
   return <FreeCourses />

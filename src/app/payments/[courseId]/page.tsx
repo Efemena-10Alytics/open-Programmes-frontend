@@ -1,5 +1,5 @@
 import { ProtectedRoute } from "@/components/utilities/ProtectedRoute";
-import PaymentPage from "@/pages/Payments";
+import PaymentPage from "@/components/pages/Payments";
 
 interface PageProps {
   params: Promise<{

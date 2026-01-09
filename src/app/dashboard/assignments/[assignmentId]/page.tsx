@@ -1,4 +1,4 @@
-import AssignmentDetails from '@/pages/dashboard/AssignmentDetails'
+import AssignmentDetails from '@/components/pages/dashboard/AssignmentDetails'
 
 interface PageProps {
   params: Promise<{

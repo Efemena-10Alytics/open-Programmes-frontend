@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  transpilePackages: [
+    'react-country-state-city',
+    'react-datepicker',
+    'react-datetime-picker',
+  ],
+}
 
-export default nextConfig;
+export default nextConfig

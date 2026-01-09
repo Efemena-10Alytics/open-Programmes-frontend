@@ -1,4 +1,4 @@
-import CourseDetails from '@/pages/CourseDetails'
+import CourseDetails from '@/components/pages/CourseDetails'
 
 export default function CourseDetailsPage() {
   return <CourseDetails />

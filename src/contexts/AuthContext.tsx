@@ -5,12 +5,13 @@ import {
   useState,
   useEffect,
   ReactNode,
+  useMemo,
 } from "react";
 import { getAccessToken, removeTokens } from "../lib/tokenStorage";
 import UserModel from "../models/User";
 import { jwtDecode } from "jwt-decode";
 import api from "../lib/api";
-import { useQuery, QueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { config } from "../config";
 
 interface AuthContextType {
@@ -37,8 +38,6 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-const queryClient = new QueryClient();
-
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserModel | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -46,10 +45,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [userID, setUserID] = useState<string | null>(null);
   const baseURL = config.url.API_URL;
 
-  // Add refetchUser function to the context
   const refetchUser = async (): Promise<UserModel | null> => {
     if (!userID) return null;
-    
+
     try {
       setIsLoading(true);
       const response = await api.get(`/api/users/${userID}`);
@@ -86,6 +84,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const checkAuth = async () => {
       setIsLoading(true);
+
+      // Check if we're in the browser
+      if (typeof window === "undefined") {
+        setIsLoading(false);
+        return;
+      }
+
       const token = getAccessToken();
       if (token) {
         console.log("Access token is available");
@@ -93,7 +98,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         const { id } = jwtDecode<JWTPayload>(token);
         setUserID(id);
-        
+
         try {
           const response = await api.get(`/api/users/${id}`);
           setUser(response.data.data);
@@ -112,13 +117,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
     checkAuth();
   }, []);
 
-  // REMOVED: Don't return Loader from AuthProvider
-  // if (isLoading) return <Loader />;
-
   const login = async (userData: UserModel) => {
     setUser(userData);
     setIsAuthenticated(true);
-    
+
     if (userData.id) {
       try {
         const fullUserData = await fetchUserDirectly(userData.id);
@@ -135,23 +137,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setUser(null);
     setIsAuthenticated(false);
     setUserID(null);
-    queryClient.clear();
+    // Clear query cache using a different approach
+    if (typeof window !== "undefined") {
+      localStorage.clear();
+    }
   };
 
+  const contextValue = useMemo(
+    () => ({
+      user,
+      login,
+      logout,
+      isAuthenticated,
+      userID,
+      isLoading,
+      refetchUser,
+    }),
+    [user, isAuthenticated, userID, isLoading]
+  );
+
   return (
-    <AuthContext.Provider
-      value={{ 
-        user, 
-        login, 
-        logout, 
-        isAuthenticated, 
-        userID, 
-        isLoading,
-        refetchUser 
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 }
 

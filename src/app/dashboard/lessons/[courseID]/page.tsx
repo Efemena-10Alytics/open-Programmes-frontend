@@ -1,4 +1,4 @@
-import LessonDetails from '@/pages/dashboard/LessonDetails'
+import LessonDetails from '@/components/pages/dashboard/LessonDetails'
 
 interface PageProps {
   params: Promise<{
