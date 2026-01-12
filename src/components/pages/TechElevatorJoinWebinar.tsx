@@ -19,17 +19,15 @@ import {
   ChevronUp,
   Video,
 } from "lucide-react";
+import Logo from "../10alytics";
 
 const TechElevatorJoinWebinar = () => {
   const [activeWeek, setActiveWeek] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
-    const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   const handleJoinWebinar = () => {
-    window.open(
-      "https://event.webinarjam.com/register/6/o7kv9sp",
-      "_blank"
-    );
+    window.open("https://event.webinarjam.com/register/6/o7kv9sp", "_blank");
   };
 
   const weeks = [
@@ -150,15 +148,11 @@ const TechElevatorJoinWebinar = () => {
       {/* Background Effects */}
       <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,0.8),transparent_50%)]"></div>
-      
+
       {/* Navigation */}
       <nav className="relative z-50 w-full py-4 px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-2">
-          <img
-            src="/img/mixedLogo.png"
-            alt="Nebiant Logo"
-            className="h-10 w-auto rounded-lg shadow"
-          />
+          <Logo />
         </a>
       </nav>
 
@@ -184,7 +178,9 @@ const TechElevatorJoinWebinar = () => {
             </h1>
 
             <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
-              Join our exclusive LIVE webinar and discover how to elevate your career from Excel basics to AI-powered job matching in just 4 weeks.
+              Join our exclusive LIVE webinar and discover how to elevate your
+              career from Excel basics to AI-powered job matching in just 4
+              weeks.
             </p>
 
             <div className="bg-gradient-to-r from-gray-900/30 to-gray-800/20 border border-gray-800/50 rounded-xl p-6">
@@ -194,7 +190,9 @@ const TechElevatorJoinWebinar = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span>The exact 4-week roadmap we use to transform careers</span>
+                  <span>
+                    The exact 4-week roadmap we use to transform careers
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -206,7 +204,9 @@ const TechElevatorJoinWebinar = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span>Q&A with program graduates earning 6-figure salaries</span>
+                  <span>
+                    Q&A with program graduates earning 6-figure salaries
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -272,7 +272,8 @@ const TechElevatorJoinWebinar = () => {
               Why Attend This Webinar?
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Get a sneak peek into our proven system and exclusive insights from industry experts
+              Get a sneak peek into our proven system and exclusive insights
+              from industry experts
             </p>
           </div>
 
@@ -282,15 +283,23 @@ const TechElevatorJoinWebinar = () => {
                 <BarChart3 className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-lg mb-2">Live Dashboard Demo</h3>
-              <p className="text-gray-400">Watch us build a professional dashboard from scratch in real-time</p>
+              <p className="text-gray-400">
+                Watch us build a professional dashboard from scratch in
+                real-time
+              </p>
             </div>
 
             <div className="group relative bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-gray-700 transition-all duration-300">
               <div className="bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform">
                 <Bot className="w-8 h-8" />
               </div>
-              <h3 className="font-bold text-lg mb-2">AI Job Matching Secrets</h3>
-              <p className="text-gray-400">Learn how AI can match you to your perfect tech job automatically</p>
+              <h3 className="font-bold text-lg mb-2">
+                AI Job Matching Secrets
+              </h3>
+              <p className="text-gray-400">
+                Learn how AI can match you to your perfect tech job
+                automatically
+              </p>
             </div>
 
             <div className="group relative bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-gray-700 transition-all duration-300">
@@ -298,7 +307,9 @@ const TechElevatorJoinWebinar = () => {
                 <Users className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-lg mb-2">Success Stories</h3>
-              <p className="text-gray-400">Hear from graduates who doubled their salaries in months</p>
+              <p className="text-gray-400">
+                Hear from graduates who doubled their salaries in months
+              </p>
             </div>
           </div>
         </div>
@@ -312,7 +323,8 @@ const TechElevatorJoinWebinar = () => {
               Why Choose Tech Elevator?
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Our unique approach combines practical skills with career acceleration tools
+              Our unique approach combines practical skills with career
+              acceleration tools
             </p>
           </div>
 
@@ -339,7 +351,8 @@ const TechElevatorJoinWebinar = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">4-Week Curriculum</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Comprehensive curriculum designed to take you from beginner to job-ready
+              Comprehensive curriculum designed to take you from beginner to
+              job-ready
             </p>
           </div>
 
@@ -510,7 +523,8 @@ const TechElevatorJoinWebinar = () => {
               Don't Miss This Exclusive Webinar!
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Join hundreds of professionals who are transforming their careers. Reserve your spot now - seats are limited!
+              Join hundreds of professionals who are transforming their careers.
+              Reserve your spot now - seats are limited!
             </p>
 
             <div className="flex flex-col justify-center">

@@ -1,13 +1,10 @@
 import Link from "next/link";
+import ImportedLogo from "../10alytics";
 
 const Logo = ({ className = "", mobile = false }) => {
   return (
     <Link href="/">
-      <img
-        src="/img/mixedLogo.png"
-        alt="Logo"
-        className={`${mobile ? "h-12 mt-4" : ""} ${className}`}
-      />
+      <ImportedLogo />
     </Link>
   );
 };

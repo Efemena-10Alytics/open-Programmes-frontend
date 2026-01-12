@@ -23,6 +23,7 @@ import { TbCalendarDue } from "react-icons/tb";
 import { MdVerified, MdTrendingUp } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "../10alytics"
 
 const TOTAL_COURSE_FEE = Number(process.env.NEXT_PUBLIC_TOTAL_COURSE_FEE) || 250000;
 const ORIGINAL_COURSE_FEE = 350000;
@@ -464,7 +465,7 @@ const PaymentPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50">
       <nav className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-red-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <img src="/img/mixedLogo.png" alt="Logo" className="h-8" />
+          <Logo />
           <button
             onClick={() => router.back()}
             className="text-gray-600 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-red-50"

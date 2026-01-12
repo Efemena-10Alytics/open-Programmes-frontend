@@ -1,4 +1,4 @@
-"use client"; // Add this because we're using hooks
+"use client";
 
 import { Form, Formik } from "formik";
 import { useQuery } from "@tanstack/react-query";
@@ -18,13 +18,14 @@ import Loader from "../utilities/Loader";
 import api from "../../lib/api";
 import { BlogModel } from "../../types";
 import { Key, useEffect, useState } from "react";
+import Logo from "../10alytics";
 
 const BlogDetails = () => {
   const params = useParams();
   const blogId = params?.blogId as string;
-  
+
   const [currentUrl, setCurrentUrl] = useState<string>("");
-  
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setCurrentUrl(window.location.href);
@@ -114,7 +115,9 @@ const BlogDetails = () => {
                   </h4>
                   <div className="flex gap-4">
                     <a
-                      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`}
+                      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                        currentUrl
+                      )}&text=${encodeURIComponent(blog.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[45px] w-[45px] hover:bg-[#CA2421] hover:text-white transition-colors"
@@ -122,7 +125,9 @@ const BlogDetails = () => {
                       <FaSquareXTwitter size={20} />
                     </a>
                     <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`}
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                        currentUrl
+                      )}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[45px] w-[45px] hover:bg-[#CA2421] hover:text-white transition-colors"
@@ -130,7 +135,9 @@ const BlogDetails = () => {
                       <FaFacebookSquare size={20} />
                     </a>
                     <a
-                      href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(blog.title)}`}
+                      href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                        currentUrl
+                      )}&title=${encodeURIComponent(blog.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[45px] w-[45px] hover:bg-[#CA2421] hover:text-white transition-colors"
@@ -143,13 +150,7 @@ const BlogDetails = () => {
                 {/* Author Bio Section */}
                 <div className="flex flex-col gap-4 p-6 bg-[#F9FAFB] rounded-lg">
                   <div className="flex items-center gap-4">
-                    <Image
-                      src="/img/mixedLogo.png"
-                      alt="Nebiant Analytics"
-                      width={64}
-                      height={64}
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+                    <Logo />
                     <div>
                       <h5 className="text-[18px] font-bold">
                         Nebiant Analytics

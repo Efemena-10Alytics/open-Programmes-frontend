@@ -53,6 +53,7 @@ import {
 } from "../TechElevatorComponents";
 import TestimonialSection from "../TestimonialSection";
 import RegistrationForm from "../Form";
+import Logo from "../10alytics";
 
 const TechElevatorPage = () => {
   const [activeWeek, setActiveWeek] = useState(0);
@@ -197,11 +198,7 @@ const TechElevatorPage = () => {
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,0.8),transparent_50%)]"></div>
       <nav className="relative z-50 w-full py-4 px-4 sm:px-6 lg:px-8 ">
         <a href="/" className="flex items-center gap-2">
-          <img
-            src="/img/mixedLogo.png"
-            alt="Nebiant Logo"
-            className="h-10 w-auto rounded-lg shadow"
-          />
+          <Logo />
         </a>
       </nav>
       {/* Hero Section */}

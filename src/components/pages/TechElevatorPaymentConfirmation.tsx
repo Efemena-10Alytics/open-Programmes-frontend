@@ -23,7 +23,7 @@ import {
   Star,
   Heart,
 } from "lucide-react";
-// Using ₦ symbol directly instead of react-icons
+import Logo from "../10alytics";
 
 const TechElevatorPaymentConfirmation = () => {
   const [showCelebration, setShowCelebration] = useState(true);
@@ -39,7 +39,7 @@ const TechElevatorPaymentConfirmation = () => {
     const calculateTimeToStart = () => {
       const now = new Date();
       const startDate = new Date();
-      
+
       // Set to next Monday at 10:00 AM
       const daysUntilMonday = (8 - now.getDay()) % 7 || 7;
       startDate.setDate(now.getDate() + daysUntilMonday);
@@ -75,7 +75,8 @@ const TechElevatorPaymentConfirmation = () => {
     {
       step: 1,
       title: "Check Your Email",
-      description: "We've sent you a welcome email with all the important details and calendar invites.",
+      description:
+        "We've sent you a welcome email with all the important details and calendar invites.",
       icon: <Mail className="w-6 h-6" />,
       color: "from-blue-600 to-blue-700",
       action: "Check your inbox and spam folder",
@@ -83,7 +84,8 @@ const TechElevatorPaymentConfirmation = () => {
     {
       step: 2,
       title: "Join Our WhatsApp Group",
-      description: "Connect with your cohort and instructors for updates and support.",
+      description:
+        "Connect with your cohort and instructors for updates and support.",
       icon: <MessageCircle className="w-6 h-6" />,
       color: "from-green-600 to-green-700",
       action: "WhatsApp link sent to your email",
@@ -157,16 +159,11 @@ const TechElevatorPaymentConfirmation = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">   
-
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Navigation with Logo */}
       <nav className="relative flex justify-between items-center z-40 w-full py-4 px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-2">
-          <img
-            src="/img/mixedLogo.png"
-            alt="Nebiant Logo"
-            className="h-8 md:h-10 w-auto rounded-lg shadow-lg"
-          />
+          <Logo />
         </a>
       </nav>
 
@@ -177,7 +174,6 @@ const TechElevatorPaymentConfirmation = () => {
       {/* Main Content */}
       <div className="relative pt-8 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          
           {/* Success Header */}
           <div className="text-center mb-12">
             <div className="bg-gradient-to-r from-green-400 to-green-600 rounded-full p-6 mb-6 mx-auto w-fit">
@@ -192,9 +188,10 @@ const TechElevatorPaymentConfirmation = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-              Congratulations! You've successfully enrolled in Tech Elevator. Your journey to a tech career starts now!
+              Congratulations! You've successfully enrolled in Tech Elevator.
+              Your journey to a tech career starts now!
             </p>
-            
+
             {/* Payment Details */}
             <div className="bg-black/60 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 max-w-md mx-auto">
               <h3 className="font-semibold mb-4">Payment Summary</h3>
@@ -216,7 +213,9 @@ const TechElevatorPaymentConfirmation = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Status:</span>
-                  <span className="text-green-400 font-semibold">✓ Confirmed</span>
+                  <span className="text-green-400 font-semibold">
+                    ✓ Confirmed
+                  </span>
                 </div>
               </div>
             </div>
@@ -224,7 +223,9 @@ const TechElevatorPaymentConfirmation = () => {
 
           {/* Next Steps */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-center mb-8">What Happens Next?</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">
+              What Happens Next?
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {nextSteps.map((step, index) => (
                 <div
@@ -232,7 +233,9 @@ const TechElevatorPaymentConfirmation = () => {
                   className="bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 relative"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`bg-gradient-to-r ${step.color} p-3 rounded-lg`}>
+                    <div
+                      className={`bg-gradient-to-r ${step.color} p-3 rounded-lg`}
+                    >
                       {step.icon}
                     </div>
                     <div className="flex-1">
@@ -242,7 +245,9 @@ const TechElevatorPaymentConfirmation = () => {
                         </span>
                       </div>
                       <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-                      <p className="text-gray-400 text-sm mb-3">{step.description}</p>
+                      <p className="text-gray-400 text-sm mb-3">
+                        {step.description}
+                      </p>
                       <div className="flex items-center gap-2 text-sm font-semibold text-white">
                         <ArrowRight className="w-4 h-4" />
                         {step.action}
@@ -256,7 +261,9 @@ const TechElevatorPaymentConfirmation = () => {
 
           {/* Program Schedule */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-center mb-8">Your 4-Week Schedule</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">
+              Your 4-Week Schedule
+            </h2>
             <div className="grid gap-4">
               {programSchedule.map((week, index) => (
                 <div
@@ -269,7 +276,9 @@ const TechElevatorPaymentConfirmation = () => {
                         <span className="text-xs font-semibold bg-red-600 px-2 py-1 rounded-full">
                           WEEK {week.week}
                         </span>
-                        <span className="text-sm text-gray-400">{week.date}</span>
+                        <span className="text-sm text-gray-400">
+                          {week.date}
+                        </span>
                       </div>
                       <h3 className="font-bold text-lg">{week.title}</h3>
                     </div>
@@ -291,7 +300,9 @@ const TechElevatorPaymentConfirmation = () => {
 
           {/* Important Information */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-center mb-8">Important Information</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">
+              Important Information
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-blue-900/30 border border-blue-800/50 rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-4">
@@ -306,7 +317,7 @@ const TechElevatorPaymentConfirmation = () => {
                   <li>• Dedication to attend all live sessions</li>
                 </ul>
               </div>
-              
+
               <div className="bg-green-900/30 border border-green-800/50 rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <Award className="w-5 h-5 text-green-400" />
@@ -325,9 +336,12 @@ const TechElevatorPaymentConfirmation = () => {
 
           {/* Contact Support */}
           <div className="bg-black/60 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Need Help? We're Here for You!</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              Need Help? We're Here for You!
+            </h2>
             <p className="text-gray-300 mb-6">
-              Have questions about the program or need technical support? Our team is ready to help.
+              Have questions about the program or need technical support? Our
+              team is ready to help.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <div className="flex items-center gap-2">
@@ -345,10 +359,14 @@ const TechElevatorPaymentConfirmation = () => {
           <div className="text-center mt-12 pt-8 border-t border-gray-800/50">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Heart className="w-6 h-6 text-red-400" />
-              <span className="text-xl font-semibold">Thank you for choosing Nebiant!</span>
+              <span className="text-xl font-semibold">
+                Thank you for choosing Nebiant!
+              </span>
             </div>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              We're excited to have you on this journey. Get ready to transform your career and unlock new opportunities in the tech industry. See you in class!
+              We're excited to have you on this journey. Get ready to transform
+              your career and unlock new opportunities in the tech industry. See
+              you in class!
             </p>
           </div>
         </div>

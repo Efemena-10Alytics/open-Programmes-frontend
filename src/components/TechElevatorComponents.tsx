@@ -41,6 +41,7 @@ import {
   Flame,
 } from "lucide-react";
 import { FaNairaSign } from "react-icons/fa6";
+import Logo from "./10alytics"
 
 // Additional Program Details Component
 export const ProgramDetails = () => {
@@ -457,11 +458,7 @@ export const TechElevatorFooter = () => {
         <div className="border-t border-gray-800/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <img
-                src="/img/mixedLogo.png"
-                alt="Nebiant Logo"
-                className="h-8 w-auto"
-              />
+          <Logo />
               <span className="text-gray-400 text-sm">
                 © 2024 Nebiant Analytics. All rights reserved.
               </span>

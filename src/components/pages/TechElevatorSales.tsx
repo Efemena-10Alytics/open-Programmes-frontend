@@ -55,6 +55,7 @@ import {
 } from "../TechElevatorComponents";
 import TestimonialSection from "../TestimonialSection";
 import RegistrationForm from "../Form";
+import Logo from "../10alytics";
 
 const TechElevatorSalesPage = () => {
   const [activeWeek, setActiveWeek] = useState(0);
@@ -252,11 +253,7 @@ const TechElevatorSalesPage = () => {
       {/* Navigation with Logo */}
       <nav className="relative flex justify-between items-center z-50 w-full py-4 px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-2">
-          <img
-            src="/img/mixedLogo.png"
-            alt="Nebiant Logo"
-            className="h-8 md:h-10 w-auto rounded-lg shadow-lg"
-          />
+          <Logo />
         </a>
       </nav>
       {/* Urgency Bar */}

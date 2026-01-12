@@ -4,6 +4,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState, useEffect, useRef } from "react";
 import { formatName } from "../../../utils/formatName";
+import Logo from "../../10alytics";
 
 interface DashboardNavbarProps {
   toggleSidebar: () => void;
@@ -45,17 +46,9 @@ const DashboardNavbar = ({ toggleSidebar }: DashboardNavbarProps) => {
 
           {/* Logo */}
           <Link href={"/dashboard"} className="flex-shrink-0">
-            <img
-              src="/img/mixedLogo.png"
-              alt="Dashboard Logo"
-              className="h-12 sm:h-14 md:h-12 w-auto"
-            />
+            <Logo />
           </Link>
 
-          {/* Dashboard Title - Hidden on xs screens */}
-          <h1 className="hidden sm:block text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl font-bold truncate">
-            Your Learning Dashboard
-          </h1>
         </div>
 
         {/* Right Section */}

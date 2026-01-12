@@ -3,6 +3,7 @@ import { NavLink } from "../../utilities/NavLink";
 import Logout from "../Logout";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Logo from "../../10alytics"  
 
 interface DashboardSidebarProps {
   isMobile: boolean;
@@ -122,7 +123,7 @@ const DashboardSidebar = ({
     >
       <div className="flex justify-between items-center mb-6">
         <Link href="/dashboard">
-          <img src="/img/mixedLogo.png" alt="" className="w-[120px]" />
+          <Logo />
         </Link>
         <FaTimes className="text-xl cursor-pointer" onClick={closeSidebar} />
       </div>

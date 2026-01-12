@@ -10,7 +10,8 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import MobileDropdown from "./dropdowns/MobileDropdown";
 import { useAuth } from "../../contexts/AuthContext";
-import Image from "next/image"; // Use Next.js Image component for optimization
+import Image from "next/image"; 
+import Logo from "../10alytics"
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -21,15 +22,7 @@ const Navbar = () => {
       {/* DESKTOP */}
       <header className="hidden lg:flex h-[144px] items-center justify-between w-11/12 mx-auto">
         <Link href="/" className="flex-shrink-0">
-          <Image
-            src="/img/mixedLogo.png"
-            alt="Logo"
-            width={0}
-            height={48}
-            sizes="100vw"
-            className="h-12 sm:h-14 md:h-12 w-auto"
-            style={{ width: 'auto' }}
-          />
+          <Logo />
         </Link>
         <nav className="bg-[#FFEFEF] w-[647px] rounded-[10px] py-4 px-6">
           <ul className="flex justify-between items-center">
@@ -84,15 +77,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link href="/" className="flex-shrink-0">
-              <Image
-                src="/img/mixedLogo.png"
-                alt="Logo"
-                width={0}
-                height={48}
-                sizes="100vw"
-                className="h-12 sm:h-14 md:h-12 w-auto"
-                style={{ width: 'auto' }}
-              />
+             <Logo />
             </Link>
 
             <RxHamburgerMenu

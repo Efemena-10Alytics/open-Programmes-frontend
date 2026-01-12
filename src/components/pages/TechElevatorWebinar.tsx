@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import React from "react";
+import Logo from "../10alytics";
 
 const TechElevatorWebinar = () => {
   const handleEnrollNow = () => {
@@ -13,15 +14,11 @@ const TechElevatorWebinar = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,0.8),transparent_50%)]"></div>
-      
+
       {/* Navigation with Logo */}
       <nav className="relative flex justify-between items-center z-50 w-full py-4 px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-2">
-          <img
-            src="/img/mixedLogo.png"
-            alt="Nebiant Logo"
-            className="h-8 md:h-10 w-auto rounded-lg shadow-lg"
-          />
+          <Logo />
         </a>
       </nav>
 
