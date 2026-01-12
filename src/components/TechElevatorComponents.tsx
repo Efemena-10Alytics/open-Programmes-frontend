@@ -447,7 +447,7 @@ export const TechElevatorFooter = () => {
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <Mail className="w-3 h-3 text-gray-400" />
-                  <span className="text-gray-400">hello@nebiant.com</span>
+                  <span className="text-gray-400">eneze@10alytics.org</span>
                 </div>
               </div>
             </div>

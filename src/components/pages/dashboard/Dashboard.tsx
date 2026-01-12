@@ -649,10 +649,10 @@ const Dashboard = () => {
           If you have any questions or need assistance, please contact our
           support team at{" "}
           <a
-            href="mailto:hello@nebiant.com"
+            href="mailto:eneze@10alytics.org"
             className="text-blue-600 hover:underline"
           >
-            hello@nebiant.com
+            eneze@10alytics.org
           </a>
         </p>
       </div>
@@ -707,10 +707,10 @@ const Dashboard = () => {
               <p>
                 Contact our advisors at{" "}
                 <a
-                  href="mailto:hello@nebiant.com"
+                  href="mailto:eneze@10alytics.org"
                   className="text-blue-600 hover:underline"
                 >
-                  hello@nebiant.com
+                  eneze@10alytics.org
                 </a>
               </p>
             </div>

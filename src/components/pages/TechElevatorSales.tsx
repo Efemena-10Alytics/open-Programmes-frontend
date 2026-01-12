@@ -878,7 +878,7 @@ const TechElevatorSalesPage = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>hello@nebiant.com</span>
+                  <span>eneze@10alytics.org</span>
                 </div>
               </div>
             </div>

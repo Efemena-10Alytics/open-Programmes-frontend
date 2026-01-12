@@ -424,7 +424,7 @@ const TechElevatorSection = () => {
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <Mail className="w-3 h-3" />
-                  <span>hello@nebiant.com</span>
+                  <span>eneze@10alytics.org</span>
                 </div>
               </div>
             </div>
