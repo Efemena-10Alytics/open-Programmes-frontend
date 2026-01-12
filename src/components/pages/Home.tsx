@@ -227,7 +227,7 @@ const AnnouncementPopup = ({ isOpen, onClose }: PopupProps) => {
               
               <div className="flex flex-col gap-4">
                 <p className="text-[18px] leading-[26px]">
-                  <strong>Nebiant Analytics is now part of 10alytics Business!</strong>
+                  <strong>10Alytics Business is now part of 10alytics Business!</strong>
                 </p>
                 <p className="text-[16px] leading-[24px]">
                   We're excited to share that our platform is transitioning to become part of the 
@@ -341,7 +341,7 @@ const Home = () => {
               <div className="flex gap-4">
                 <img src="svg/arrow.svg" alt="" className="flex-[0.02]" />
                 <p className="flex-[0.98]">
-                  Nebiant analytics is dedicated to empowering professionals
+                  10Alytics Business is dedicated to empowering professionals
                   with career defining skills by providing best-in-class Data
                   and AI skills.
                 </p>

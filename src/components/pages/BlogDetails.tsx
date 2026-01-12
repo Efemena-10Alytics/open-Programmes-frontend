@@ -76,7 +76,7 @@ const BlogDetails = () => {
         <div className="flex flex-col gap-10 -mt-[100px] mb-[160px]">
           <BlogItem
             images={blogImages}
-            postedBy="By Nebiant Analytics"
+            postedBy="By 10Alytics Business"
             commentCounts={0}
             datePosted={new Date(blog.createdAt).toLocaleDateString("en-US", {
               day: "numeric",
@@ -153,7 +153,7 @@ const BlogDetails = () => {
                     <Logo />
                     <div>
                       <h5 className="text-[18px] font-bold">
-                        Nebiant Analytics
+                        10Alytics Business
                       </h5>
                       <p className="text-[#555555] text-sm">
                         Data Science Education Provider
@@ -161,7 +161,7 @@ const BlogDetails = () => {
                     </div>
                   </div>
                   <p className="text-[#555555]">
-                    Nebiant Analytics is a leading provider of data science
+                    10Alytics Business is a leading provider of data science
                     education, offering comprehensive courses and resources for
                     aspiring data professionals.
                   </p>

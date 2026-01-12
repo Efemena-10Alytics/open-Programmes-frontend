@@ -93,7 +93,7 @@ const EventPanelists = () => {
                   Muhammed Suleman
                 </span>
                 <span className="text-[#828282] text-[12px] font-light">
-                  COO, Nebiant Analytics
+                  COO, 10Alytics Business
                 </span>
               </div>
             </div>
@@ -105,10 +105,10 @@ const EventPanelists = () => {
               />
               <div className="flex flex-col items-center">
                 <span className="text-[#333333] text-[18px] font-semibold leading-6">
-                  Lemuel Yole-Odior
+                  Chukwuemeka
                 </span>
                 <span className="text-[#828282] text-[12px] font-light">
-                  CEO, Nebiant Analytics
+                  CEO, 10Alytics Business
                 </span>
               </div>
             </div>

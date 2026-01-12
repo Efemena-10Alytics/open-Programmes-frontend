@@ -56,7 +56,7 @@ const Courses = () => {
 
         <div className="mb-24">
           <CoursesSection
-            rightText="At Nebiant Analytics, we offer a selection of standout
+            rightText="At 10Alytics Business, we offer a selection of standout
          courses and resources designed to meet the specific needs of the Nigerian market.
           Each course integrates the latest industry trends and tools, ensuring our students
           are well-prepared for the challenges of the data-driven world."
@@ -82,7 +82,7 @@ const Courses = () => {
                   Your Pace and Track Your Progress
                 </h2>
                 <p className="text-[#828282] leading-[25px] mb-9">
-                  With Nebiant Analytics, you can enjoy the flexibility of
+                  With 10Alytics Business, you can enjoy the flexibility of
                   watching course videos at your own pace, allowing you to fit
                   your learning around your schedule. Pause, replay, and review
                   high-quality content to fully grasp each topic. As you
@@ -104,7 +104,7 @@ const Courses = () => {
                     <span className="text-primary"> Expert Instructors</span>
                   </h2>
                   <p className="text-[#828282] leading-[25px] mb-9">
-                    With Nebiant Analytics, you&apos;ll have the opportunity to
+                    With 10Alytics Business, you&apos;ll have the opportunity to
                     learn from industry-leading experts who bring a wealth of
                     knowledge and experience to the table. Our instructors are
                     seasoned professionals in their respective fields, with
@@ -150,7 +150,7 @@ const Courses = () => {
           <div className="w-11/12 mx-auto">
             <h1 className="lg:w-[74%] mx-auto text-[37px] font-extrabold leading-[45px] lg:text-center text-white mb-20">
               Why get certified from{" "}
-              <span className="text-primary"> Nebiant Analytics? </span>
+              <span className="text-primary">10Alytics Business? </span>
             </h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">

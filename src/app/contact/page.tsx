@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import Contact from '@/components/pages/Contact'
 
 export const metadata = {
-  title: 'Contact Us - Nebiant Analytics',
+  title: 'Contact Us - 10Alytics Business',
   description: 'Get in touch with us for inquiries on enrollment, available courses and next cohort start date.',
 }
 

@@ -13,8 +13,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nebiant Analytics',
-  description: 'Nebiant Analytics Platform',
+  title: '10Alytics Business',
+  description: '10Alytics Business Platform',
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     apple: '/favicon.ico',
   },
   openGraph: {
-    title: 'Nebiant Analytics',
-    description: 'Nebiant Analytics Platform',
+    title: '10Alytics Business',
+    description: '10Alytics Business Platform',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nebiant Analytics',
-    description: 'Nebiant Analytics Platform',
+    title: '10Alytics Business',
+    description: '10Alytics Business Platform',
   },
 }
 
@@ -99,8 +99,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
-              "name": "Nebiant Analytics",
-              "description": "Nebiant Analytics Platform",
+              "name": "10Alytics Business",
+              "description": "10Alytics Business Platform",
               "url": process.env.NEXT_PUBLIC_SITE_URL || "https://nebiant.com"
             })
           }}

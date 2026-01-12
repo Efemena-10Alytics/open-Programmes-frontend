@@ -40,7 +40,7 @@ const HomeSection = () => {
         <div className="lg:flex-[0.4] pl-[4%] pr-[2%] lg:pr-0">
           <h1 className="text-[37px] font-bold leading-[45px] text-white mb-5">
             Fast-track your career with{" "}
-            <span className="text-primary">nebiant analytics.</span>
+            <span className="text-primary">.</span>
           </h1>
           <div className="flex flex-col gap-5">
             <div className="flex gap-4">
@@ -66,7 +66,7 @@ const HomeSection = () => {
 
                 {activeView.learn && (
                   <p className="leading-[21px] font-light">
-                    Begin your journey at Nebiant analytics with comprehensive
+                    Begin your journey at 10Alytics Business with comprehensive
                     training courses designed to equip you with skills in Data
                     Analytics, Data Science, Business Analysis.
                   </p>
@@ -95,7 +95,7 @@ const HomeSection = () => {
                 </h3>
                 {activeView.experience && (
                   <p>
-                    Begin your journey at Nebiant analytics with comprehensive
+                    Begin your journey at 10Alytics Business with comprehensive
                     training courses designed to equip you with skills in Data
                     Analytics, Data Science, Business Analysis.
                   </p>
@@ -124,7 +124,7 @@ const HomeSection = () => {
                 </h3>
                 {activeView.skills && (
                   <p>
-                    Begin your journey at Nebiant analytics with comprehensive
+                    Begin your journey at 10Alytics Business with comprehensive
                     training courses designed to equip you with skills in Data
                     Analytics, Data Science, Business Analysis.
                   </p>
@@ -153,7 +153,7 @@ const HomeSection = () => {
                 </h3>
                 {activeView.apply && (
                   <p>
-                    Begin your journey at Nebiant analytics with comprehensive
+                    Begin your journey at 10Alytics Business with comprehensive
                     training courses designed to equip you with skills in Data
                     Analytics, Data Science, Business Analysis.
                   </p>
@@ -182,7 +182,7 @@ const HomeSection = () => {
                 </h3>
                 {activeView.getJob && (
                   <p>
-                    Begin your journey at Nebiant analytics with comprehensive
+                    Begin your journey at 10Alytics Business with comprehensive
                     training courses designed to equip you with skills in Data
                     Analytics, Data Science, Business Analysis.
                   </p>

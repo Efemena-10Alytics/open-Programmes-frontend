@@ -41,8 +41,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const hearAboutOptions = [
-    "Nebiant Analytics Instagram",
-    "Nebiant Analytics Facebook",
+    "10Alytics Business Instagram",
+    "10Alytics Business Facebook",
     "LinkedIn",
     "Friend/Family/Colleague",
     "Other",

@@ -460,7 +460,7 @@ export const TechElevatorFooter = () => {
             <div className="flex items-center gap-2">
           <Logo />
               <span className="text-gray-400 text-sm">
-                © 2024 Nebiant Analytics. All rights reserved.
+                © 2025 10Alytics Business. All rights reserved.
               </span>
             </div>
 

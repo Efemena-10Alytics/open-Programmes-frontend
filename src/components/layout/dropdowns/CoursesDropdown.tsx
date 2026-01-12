@@ -34,7 +34,7 @@ const menu = (
             <div className="flex flex-col ">
               <span className="text-[13px]">All Courses</span>
               <span className="text-[11px] font-light">
-                Access all courses offered by nebiant analytics here
+                Access all courses offered by 10Alytics Business here
               </span>
             </div>
           </NavLink>
