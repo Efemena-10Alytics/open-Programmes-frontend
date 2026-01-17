@@ -114,20 +114,18 @@ export const ProgramDetails = () => {
             {details.map((detail, index) => (
               <div
                 key={index}
-                className={`cursor-pointer transition-all duration-300 ${
-                  activeDetail === index ? "transform scale-105" : ""
-                }`}
+                className={`cursor-pointer transition-all duration-300 ${activeDetail === index ? "transform scale-105" : ""
+                  }`}
                 onClick={() => setActiveDetail(index)}
               >
                 <div
-                  className={`relative bg-black/40 backdrop-blur-sm border rounded-xl p-6 ${
-                    activeDetail === index
-                      ? "border-red-600 bg-red-600/10"
-                      : "border-gray-800/50 hover:border-gray-700"
-                  }`}
+                  className={`relative bg-black/40 backdrop-blur-sm border rounded-xl p-6 ${activeDetail === index
+                    ? "border-purple-600 bg-purple-600/10"
+                    : "border-gray-800/50 hover:border-gray-700"
+                    }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-lg">
+                    <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 rounded-lg">
                       {detail.icon}
                     </div>
                     <div>
@@ -145,14 +143,14 @@ export const ProgramDetails = () => {
           {/* Details Display */}
           <div className="bg-black/60 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-lg">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 rounded-lg">
                 {details[activeDetail].icon}
               </div>
               <div>
                 <h3 className="text-2xl font-bold">
                   {details[activeDetail].title}
                 </h3>
-                <p className="text-red-400 font-semibold">
+                <p className="text-purple-400 font-semibold">
                   {details[activeDetail].description}
                 </p>
               </div>
@@ -234,15 +232,15 @@ export const LearningOutcomes = () => {
           {outcomes.map((outcome, index) => (
             <div
               key={index}
-              className="group relative bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-red-600/50 transition-all duration-300 hover:transform hover:scale-105"
+              className="group relative bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-purple-600/50 transition-all duration-300 hover:transform hover:scale-105"
             >
-              <div className="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform">
                 {outcome.icon}
               </div>
               <h3 className="font-bold text-lg mb-2">{outcome.title}</h3>
               <p className="text-gray-400 mb-4">{outcome.description}</p>
-              <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 border border-red-600/30 rounded-lg p-3">
-                <span className="text-red-300 font-semibold text-sm">
+              <div className="bg-gradient-to-r from-purple-600/20 to-purple-700/20 border border-purple-600/30 rounded-lg p-3">
+                <span className="text-purple-300 font-semibold text-sm">
                   {outcome.result}
                 </span>
               </div>
@@ -301,16 +299,16 @@ export const Instructors = () => {
           {instructors.map((instructor, index) => (
             <div
               key={index}
-              className="bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-red-600/50 transition-all duration-300"
+              className="bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-purple-600/50 transition-all duration-300"
             >
               <div className="text-center mb-4">
                 <img
                   src={instructor.image}
                   alt={instructor.name}
-                  className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-red-600 object-cover"
+                  className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-purple-600 object-cover"
                 />
                 <h3 className="font-bold text-lg">{instructor.name}</h3>
-                <p className="text-red-400 font-semibold text-sm">
+                <p className="text-purple-400 font-semibold text-sm">
                   {instructor.role}
                 </p>
                 <p className="text-gray-400 text-sm mt-2">
@@ -325,7 +323,7 @@ export const Instructors = () => {
                     {instructor.expertise.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="bg-red-600/20 text-red-300 px-2 py-1 rounded-full text-xs"
+                        className="bg-purple-600/20 text-purple-300 px-2 py-1 rounded-full text-xs"
                       >
                         {skill}
                       </span>
@@ -360,7 +358,7 @@ export const TechElevatorFooter = () => {
           {/* Program Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="bg-gradient-to-r from-red-600 to-red-700 p-2 rounded-lg">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-2 rounded-lg">
                 <TrendingUp className="w-5 h-5" />
               </div>
               <span className="font-bold text-lg">Tech Elevator</span>
@@ -434,7 +432,7 @@ export const TechElevatorFooter = () => {
             <div className="space-y-4">
               <button
                 onClick={handleEnrollNow}
-                className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-300 flex items-center gap-2 justify-center"
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-300 flex items-center gap-2 justify-center"
               >
                 <span>Enroll Now</span>
                 <ExternalLink className="w-4 h-4" />
@@ -458,7 +456,7 @@ export const TechElevatorFooter = () => {
         <div className="border-t border-gray-800/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-          <Logo />
+              <Logo />
               <span className="text-gray-400 text-sm">
                 © 2025 10Alytics Business. All rights reserved.
               </span>
@@ -476,7 +474,7 @@ export const TechElevatorFooter = () => {
               </a>
 
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-red-400" />
+                <Calendar className="w-4 h-4 text-purple-400" />
                 <span className="text-sm font-semibold">Starts August 9</span>
               </div>
             </div>
@@ -499,19 +497,19 @@ export const TechElevatorHomeSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-black to-red-950 text-white py-16 px-14 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-gray-900 via-black to-purple-950 text-white py-16 px-14 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.1),transparent_70%)]"></div>
-      <div className="absolute top-20 right-20 w-72 h-72 bg-red-600/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-red-800/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 right-20 w-72 h-72 bg-purple-600/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-800/5 rounded-full blur-3xl"></div>
 
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-red-800/30 rounded-full px-4 py-2">
-              <Flame className="w-4 h-4 text-red-400" />
-              <span className="text-red-300 text-sm font-semibold">
+            <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-purple-800/30 rounded-full px-4 py-2">
+              <Flame className="w-4 h-4 text-purple-400" />
+              <span className="text-purple-300 text-sm font-semibold">
                 NEW PROGRAM
               </span>
             </div>
@@ -521,7 +519,7 @@ export const TechElevatorHomeSection = () => {
                 Tech
               </span>
               <br />
-              <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">
                 Elevator
               </span>
             </h1>
@@ -545,7 +543,7 @@ export const TechElevatorHomeSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={handleEnrollNow}
-                className="group bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 justify-center"
+                className="group bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 justify-center"
               >
                 <span>ENROLL NOW</span>
                 <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -567,7 +565,7 @@ export const TechElevatorHomeSection = () => {
               <h3 className="font-bold text-lg mb-4">What You'll Master</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <BarChart3 className="w-5 h-5 text-red-400" />
+                  <BarChart3 className="w-5 h-5 text-purple-400" />
                   <span className="text-sm">
                     Excel Dashboards & Advanced Analytics
                   </span>
@@ -635,7 +633,7 @@ export const TechElevatorHomeSection = () => {
                 </ul>
                 <a
                   href="/tech-elevator"
-                  className="text-red-400 hover:text-red-300 text-sm font-semibold flex items-center gap-2"
+                  className="text-purple-400 hover:text-purple-300 text-sm font-semibold flex items-center gap-2"
                 >
                   <span>View Full Details</span>
                   <ArrowRight className="w-4 h-4" />

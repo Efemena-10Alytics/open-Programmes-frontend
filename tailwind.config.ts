@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: [
-      "./index.html",
+  content: [
+    "./index.html",
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}', // if using App Router
@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         dark: "#333333",
-        primary: "#CA2421",
+        primary: "#7C3AED",
       },
       backgroundImage: {
         "custom-gradient":

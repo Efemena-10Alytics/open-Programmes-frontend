@@ -8,14 +8,6 @@
   font-optical-sizing: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
-body {
-}
-
 /* Tabs animation start*/
 
 @keyframes grow {
@@ -65,6 +57,7 @@ body {
 }
 
 @keyframes blink-caret {
+
   from,
   to {
     border-color: transparent;
@@ -129,7 +122,7 @@ body {
 /* background: linear-gradient(90deg, #CA2421 0%, #CC01FF 100%); */
 
 .flash-banner-gradient {
-  background-image: linear-gradient(to right, #ca2421, #cc01ff);
+  background-image: linear-gradient(to right, #7C3AED, #cc01ff);
 }
 
 .btn-gradient {
@@ -145,11 +138,9 @@ body {
 }
 
 .leaderboard-label-gradient-2 {
-  background-image: linear-gradient(
-    to right,
-    #b5b3ad,
-    rgba(130, 130, 130, 0.26)
-  );
+  background-image: linear-gradient(to right,
+      #b5b3ad,
+      rgba(130, 130, 130, 0.26));
 }
 
 .dark-card {
@@ -165,14 +156,14 @@ body {
 
 .dashboard .react-tabs__tab--selected {
   background-color: #fff9f9;
-  color: #ca2421;
+  color: #7C3AED;
   border-radius: 4px;
   justify-content: center;
   align-items: center;
 }
 
 .xplore .react-tabs__tab--selected {
-  background-color: #ca2421;
+  background-color: #7C3AED;
   color: #ffffff;
   border-radius: 4px;
   justify-content: center;
@@ -234,6 +225,7 @@ body {
 .free-courses-heading {
   background: linear-gradient(to right, #511b1a, #623b3b);
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
 }
 
@@ -242,8 +234,8 @@ body {
   width: 20px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #ca2421;
-  box-shadow: 0 0 0 0 #ca242144;
+  background: #7C3AED;
+  box-shadow: 0 0 0 0 #7C3AED44;
   animation: l2 1.5s infinite linear;
   position: relative;
 }
@@ -254,7 +246,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: 0 0 0 0 #ca242144;
+  box-shadow: 0 0 0 0 #7C3AED44;
   animation: inherit;
   animation-delay: -0.5s;
 }
@@ -300,6 +292,7 @@ body {
   flex: 0 0 auto;
   margin-right: 2rem;
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);

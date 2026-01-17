@@ -26,19 +26,19 @@ const Courses = () => {
                 the skills you need to gain experience.
               </h1>
               <div className="flex flex-wrap items-center gap-2">
-                <div className="flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#CA24211F]">
+                <div className="flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#7C3AED1F]">
                   <img src="svg/badge.svg" alt="" />
                   <span className="text-[12px] text-[#454545]">
                     Data Analytics
                   </span>
                 </div>{" "}
-                <div className="flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#CA24211F]">
+                <div className="flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#7C3AED1F]">
                   <img src="svg/badge.svg" alt="" />
                   <span className="text-[12px] text-[#454545]">
                     Data Science
                   </span>
                 </div>{" "}
-                <div className="flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#CA24211F]">
+                <div className="flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#7C3AED1F]">
                   <img src="svg/badge.svg" alt="" />
                   <span className="text-[12px] text-[#454545]">
                     Business Analytics
@@ -88,7 +88,7 @@ const Courses = () => {
                   high-quality content to fully grasp each topic. As you
                   progress, our platform enables you to track your achievements
                   in real-time. Detailed progress reports and performance
-                  analytics provide insights into your learning journey. 
+                  analytics provide insights into your learning journey.
                 </p>
                 <Link href="/signup">
                   <Button text="Start Learning" />
@@ -96,7 +96,7 @@ const Courses = () => {
               </div>
             </div>
 
-            <div className="bg-[#FFF6F6]">
+            <div className="bg-[#FAF5FF]">
               <div className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2  justify-between gap-10 py-20">
                 <div>
                   <h2 className="text-[37px] font-bold leading-[45px] text-dark mb-8">
@@ -111,7 +111,7 @@ const Courses = () => {
                     proven credentials and a passion for teaching. They provide
                     personalized guidance, mentorship, and support throughout
                     your learning journey, ensuring you receive the highest
-                    quality education. 
+                    quality education.
                   </p>
                   <Link href="/signup">
                     <Button text="Enroll Now" />
@@ -129,8 +129,8 @@ const Courses = () => {
                   <span className="text-primary"> Accredited Certificate</span>
                 </h2>
                 <p className="text-[#828282] leading-[25px] mb-9">
-                  Upon successful completion of your courses with Nebiant
-                  Analytics, you will receive an accredited certificate
+                  Upon successful completion of your courses with 10alytics Business,
+                  you will receive an accredited certificate
                   recognized by industry professionals. This certificate
                   validates your proficiency in the respective field of study,
                   enhancing your credibility and marketability in the job
@@ -158,7 +158,7 @@ const Courses = () => {
                 <img src="svg/note.svg" alt="" />
                 <h3 className="text-[24px] font-bold">Validation</h3>
                 <span>
-                  Nebiant certifications authenticate your expertise, giving
+                  10alytics Business certifications authenticate your expertise, giving
                   employers confidence in your skills.
                 </span>
               </div>
@@ -166,7 +166,7 @@ const Courses = () => {
                 <img src="svg/career.svg" alt="" />
                 <h3 className="text-[24px] font-bold">Career Advancement</h3>
                 <span>
-                  Certification from Nebiant opens doors to new opportunities
+                  Certification from 10alytics Business opens doors to new opportunities
                   and higher-level roles in the data-driven industry.
                 </span>
               </div>{" "}
@@ -208,7 +208,7 @@ const Courses = () => {
           />{" "}
           <FAQCard
             question="How do I communicate with my instructor or peers?"
-            answer="Communication is facilitated through the Bespoke nebiant LMS
+            answer="Communication is facilitated through the Bespoke 10alytics Business LMS
              & WhatsApp group where you can message, discuss, and share resources 
              with your instructor and peers."
           />

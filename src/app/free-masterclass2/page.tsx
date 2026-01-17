@@ -1,22 +1,10 @@
 import { Suspense } from 'react'
 import MasterClass2 from '@/components/pages/MasterClass2'
-
-function MasterClass2Fallback() {
-  return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-        <div className="flex justify-center my-8">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-white"></div>
-        </div>
-        <h1 className="text-2xl font-bold text-blue-600 mb-2">Loading...</h1>
-      </div>
-    </div>
-  )
-}
+import Loader from '@/components/utilities/Loader'
 
 export default function MasterClass2Page() {
   return (
-    <Suspense fallback={<MasterClass2Fallback />}>
+    <Suspense fallback={<Loader />}>
       <MasterClass2 />
     </Suspense>
   )

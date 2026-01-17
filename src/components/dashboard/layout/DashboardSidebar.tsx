@@ -3,7 +3,7 @@ import { NavLink } from "../../utilities/NavLink";
 import Logout from "../Logout";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Logo from "../../10alytics"  
+import Logo from "../../10alytics"
 
 interface DashboardSidebarProps {
   isMobile: boolean;
@@ -39,7 +39,7 @@ const DashboardSidebar = ({
   }, [isMobile, isOpen, closeSidebar]);
 
   const sidebarItems = [
-    { to: "/dashboard", icon: "/svg/dashboard.svg", text: "Dashboard" },
+    { to: "/dashboard", icon: "/svg/dots.svg", text: "Dashboard" },
     {
       to: "/dashboard/catalog",
       icon: "/svg/clock2.svg",
@@ -68,9 +68,8 @@ const DashboardSidebar = ({
   if (!isMobile) {
     return (
       <div
-        className={`bg-white p-4 rounded-t-[10px] transition-all duration-300 h-full ${
-          isExpanded ? "w-[180px]" : "w-[70px]"
-        }`}
+        className={`bg-white p-4 rounded-t-[10px] transition-all duration-300 h-full ${isExpanded ? "w-[180px]" : "w-[70px]"
+          }`}
         onMouseEnter={() => setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
       >
@@ -93,12 +92,10 @@ const DashboardSidebar = ({
               <NavLink
                 to={item.to}
                 exact={true}
-                className={`flex items-center gap-2 py-3 ${
-                  isExpanded ? "" : "justify-center"
-                }`}
-                activeClassName={`font-semibold text-primary bg-[#CA24210A] rounded-full ${
-                  isExpanded ? "pl-2" : ""
-                }`}
+                className={`flex items-center gap-2 py-3 ${isExpanded ? "" : "justify-center"
+                  }`}
+                activeClassName={`font-semibold text-primary bg-[#7C3AED0A] rounded-full ${isExpanded ? "pl-2" : ""
+                  }`}
               >
                 <img src={item.icon} alt="" className="w-5 h-5" />
                 {isExpanded && <span>{item.text}</span>}
@@ -116,9 +113,8 @@ const DashboardSidebar = ({
   return (
     <div
       ref={sidebarRef}
-      className={`fixed top-0 left-0 z-40 h-full bg-white p-4 shadow-lg transition-all duration-300 ease-in-out ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={`fixed top-0 left-0 z-40 h-full bg-white p-4 shadow-lg transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       style={{ width: "240px" }}
     >
       <div className="flex justify-between items-center mb-6">
@@ -138,7 +134,7 @@ const DashboardSidebar = ({
               to={item.to}
               exact={true}
               className="flex items-center gap-3 py-4"
-              activeClassName="font-semibold text-primary bg-[#CA24210A] rounded-full pl-2"
+              activeClassName="font-semibold text-primary bg-[#7C3AED0A] rounded-full pl-2"
               onClick={closeSidebar}
             >
               <img src={item.icon} alt="" className="w-5 h-5" />

@@ -7,7 +7,7 @@ const MasterClass = () => {
 
   const styles = {
     box: {
-      backgroundImage: "linear-gradient(to bottom, #CA2421, #641210)",
+      backgroundImage: "linear-gradient(to bottom, #7C3AED, #4C1D95)",
     },
     button: {
       backgroundImage: "linear-gradient(to bottom, #2684FF, #174F99)",
@@ -18,8 +18,8 @@ const MasterClass = () => {
   };
 
 
-   const handleOpenForm = () => {
-   window.location.replace('https://docs.google.com/forms/d/e/1FAIpQLScKmMU3PRBq7UuhFqJ-sYTxkMkBhfF1s4K7CxnGnmYEg4yyJQ/viewform');
+  const handleOpenForm = () => {
+    window.location.replace('https://docs.google.com/forms/d/e/1FAIpQLScKmMU3PRBq7UuhFqJ-sYTxkMkBhfF1s4K7CxnGnmYEg4yyJQ/viewform');
   };
 
 
@@ -51,10 +51,10 @@ const MasterClass = () => {
         >
           Not everyone should do Tech. But If you're looking to upskill, switch
           careers, or a stay-at-home parent looking to land a high-paying job
-          remotely? Tech Is Your Best Option To Get Started and Nebiant
-          Analytics is here to guide you every step of the way.
+          remotely? Tech Is Your Best Option To Get Started and 10alytics Business
+          is here to guide you every step of the way.
         </div>
-        <div className="bg-[#FFEFEE] flex items-center justify-center rounded-[10px] px-6 lg:px-10 py-8 lg:py-16   text-[18px] lg:text-[24px] text-[#333333]">
+        <div className="bg-[#FAF5FF] flex items-center justify-center rounded-[10px] px-6 lg:px-10 py-8 lg:py-16   text-[18px] lg:text-[24px] text-[#333333]">
           Get equipped with in-demand tech skills like Data Analytics, Business
           Analysis, and Data Science—all designed to help you succeed and get a
           job even if you do not have a computer related degree or past tech
@@ -90,7 +90,7 @@ const MasterClass = () => {
         </div>
       </section>
 
-      <section className="bg-[#FFEFEE] py-16">
+      <section className="bg-[#FAF5FF] py-16">
         <div className="flex flex-col lg:flex-row items-center gap-16 w-[95%] mx-auto">
           <img
             src="img/img-fr1.png"

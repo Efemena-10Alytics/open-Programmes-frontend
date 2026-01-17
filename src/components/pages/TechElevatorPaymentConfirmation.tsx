@@ -103,7 +103,7 @@ const TechElevatorPaymentConfirmation = () => {
       title: "Attend Orientation",
       description: "Join us for the program kickoff and meet your instructors.",
       icon: <Video className="w-6 h-6" />,
-      color: "from-red-600 to-red-700",
+      color: "from-pink-600 to-pink-700",
       action: "Monday, 10:00 AM WAT",
     },
   ];
@@ -273,7 +273,7 @@ const TechElevatorPaymentConfirmation = () => {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-semibold bg-red-600 px-2 py-1 rounded-full">
+                        <span className="text-xs font-semibold bg-purple-600 px-2 py-1 rounded-full">
                           WEEK {week.week}
                         </span>
                         <span className="text-sm text-gray-400">
@@ -358,9 +358,9 @@ const TechElevatorPaymentConfirmation = () => {
           {/* Final Message */}
           <div className="text-center mt-12 pt-8 border-t border-gray-800/50">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Heart className="w-6 h-6 text-red-400" />
+              <Heart className="w-6 h-6 text-purple-400" />
               <span className="text-xl font-semibold">
-                Thank you for choosing Nebiant!
+                Thank you for choosing 10alytics Business!
               </span>
             </div>
             <p className="text-gray-400 max-w-2xl mx-auto">

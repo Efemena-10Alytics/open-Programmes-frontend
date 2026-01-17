@@ -59,7 +59,7 @@ const Popup = ({ isOpen, onClose }: PopupProps) => {
 
   const styles = {
     box: {
-      backgroundImage: "linear-gradient(to right, #CA2421, #641210)",
+      backgroundImage: "linear-gradient(to right, #7C3AED, #4C1D95)",
     },
     button: {
       backgroundImage: "linear-gradient(to bottom, #2684FF, #174F99)",
@@ -183,7 +183,7 @@ const AnnouncementPopup = ({ isOpen, onClose }: PopupProps) => {
       backgroundImage: "linear-gradient(to right, #2684FF, #174F99)",
     },
     button: {
-      backgroundImage: "linear-gradient(to bottom, #CA2421, #641210)",
+      backgroundImage: "linear-gradient(to bottom, #7C3AED, #4C1D95)",
     },
   };
 
@@ -210,9 +210,9 @@ const AnnouncementPopup = ({ isOpen, onClose }: PopupProps) => {
             </div>
             <div className="flex flex-col items-center text-center gap-6 mt-4">
               <div className="bg-white p-4 rounded-full">
-                <img 
-                  src="svg/announcement-icon.svg" 
-                  alt="Announcement" 
+                <img
+                  src="svg/announcement-icon.svg"
+                  alt="Announcement"
                   className="h-12 w-12"
                   onError={(e) => {
                     // Fallback if icon doesn't exist
@@ -220,18 +220,18 @@ const AnnouncementPopup = ({ isOpen, onClose }: PopupProps) => {
                   }}
                 />
               </div>
-              
+
               <h2 className="text-[28px] font-bold leading-[36px]">
                 We're Evolving Together!
               </h2>
-              
+
               <div className="flex flex-col gap-4">
                 <p className="text-[18px] leading-[26px]">
                   <strong>10Alytics Business is now part of 10alytics Business!</strong>
                 </p>
                 <p className="text-[16px] leading-[24px]">
-                  We're excited to share that our platform is transitioning to become part of the 
-                  10alytics Business family. You'll find the same quality courses with enhanced programs 
+                  We're excited to share that our platform is transitioning to become part of the
+                  10alytics Business family. You'll find the same quality courses with enhanced programs
                   and expanded learning opportunities on our new platform.
                 </p>
               </div>
@@ -248,7 +248,7 @@ const AnnouncementPopup = ({ isOpen, onClose }: PopupProps) => {
                   onClick={onClose}
                   className="w-full sm:w-fit rounded-full text-[15px] font-bold px-8 py-3 bg-gray-600 hover:bg-gray-700 transition-colors"
                 >
-                  Continue with Nebiant
+                  Continue with 10alytics Business
                 </button>
               </div>
             </div>
@@ -333,7 +333,7 @@ const Home = () => {
             <div className="flex-[0.35]">
               <h1 className="text-[22px] lg:text-[37px] font-bold leading-[28px] lg:leading-[45px]">
                 Learn High Income Skills at{" "}
-                <span className="text-primary"> nebiant</span> to Increase Your
+                <span className="text-primary"> 10alytics Business</span> to Increase Your
                 Earning Powers
               </h1>
             </div>
@@ -424,7 +424,7 @@ const Home = () => {
         <section className="bg-black text-white mb-[70px] py-[80px] -mt-[10px]">
           <div className="w-11/12 mx-auto">
             <h1 className="lg:w-[74%] mx-auto text-left lg:text-center text-[34px] lg:text-[60px] font-bold leading-[40px] lg:leading-[80px] mb-8">
-              Why Nebiant Is The Best Training Program For You.
+              Why 10Alytics Business Is The Best Training Program For You.
             </h1>
             <div className=" flex flex-wrap justify-between gap-10 lg:gap-24">
               <div className="flex flex-col gap-6 lg:flex-[0.45]">
@@ -494,14 +494,14 @@ const Home = () => {
         >
           <h1 className="lg:w-[70%] w-11/12 mx-auto text-[22px] lg:text-[36px] font-semibold lg:font-bold leading-[28px] lg:leading-[45px] lg:text-center text-dark mb-4 lg:mb-8">
             <span> Employers</span> are looking for you. Get the skills, gain
-            practical project experience, get mentored by <span> nebiant</span>{" "}
+            practical project experience, get mentored by <span> 10alytics Business</span>{" "}
             and land the job
           </h1>
           <p className="w-11/12 lg:w-[67%] mx-auto text-[#667085] lg:text-center text-[16px] lg:text-[24px] font-light lg:leading-[30px] mb-5 lg:mb-10">
             The average salary for a Data Scientist, according to the Bureau of
             Labor Statistics, is $100,000. According to the Bureau of Labor
             Statistics, by 2026, about 11.5 million jobs would be created for
-            data science. 
+            data science.
           </p>
 
           {/* <div className="w-11/12 lg:w-full mx-auto"> */}
@@ -560,7 +560,7 @@ const Home = () => {
              available to you when you register."
           />
           <FAQCard
-            question="How will I learn with nebiant, what is a virtual Instructor-Led class like?"
+            question="How will I learn with 10alytics Business, what is a virtual Instructor-Led class like?"
             answer="Our online classes involve live sessions with instructors, interactive discussions with
              classmates, and practical assignments to apply what you've learned."
           />{" "}
@@ -577,9 +577,9 @@ const Home = () => {
         )}
 
         {/* Announcement popup is always shown until user closes it */}
-        <AnnouncementPopup 
-          isOpen={isAnnouncementOpen} 
-          onClose={handleAnnouncementClose} 
+        <AnnouncementPopup
+          isOpen={isAnnouncementOpen}
+          onClose={handleAnnouncementClose}
         />
       </main>
     </>

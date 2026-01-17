@@ -50,8 +50,8 @@ const Contact = () => {
         <div className="w-11/12 mx-auto flex flex-wrap gap-10">
           <div className="flex flex-col gap-3 flex-1 lg:flex-[0.3]">
             <div className="bg-white flex items-center gap-3 rounded-[10px] p-5">
-              <div className="bg-[#FFCAC9] h-[24px] w-[24px] p-1 rounded-full flex items-center justify-center">
-                <FaPhone className=" text-[#CA2421] text-[13px]" />
+              <div className="bg-[#F3E8FF] h-[24px] w-[24px] p-1 rounded-full flex items-center justify-center">
+                <FaPhone className=" text-[#7C3AED] text-[13px]" />
               </div>
               <div className="flex flex-col text-[#333333]">
                 <span className="font-bold">Phone Number</span>
@@ -59,17 +59,17 @@ const Contact = () => {
               </div>
             </div>
             <div className="bg-white flex items-center gap-3 rounded-[10px] p-5">
-              <div className="bg-[#FFCAC9] h-[24px] w-[24px] p-1 rounded-full flex items-center justify-center">
-                <MdMail className=" text-[#CA2421] text-[13px]" />
+              <div className="bg-[#F3E8FF] h-[24px] w-[24px] p-1 rounded-full flex items-center justify-center">
+                <MdMail className=" text-[#7C3AED] text-[13px]" />
               </div>
               <div className="flex flex-col text-[#333333]">
                 <span className="font-bold">Email Address</span>
-                <span className="font-light">info@nebiant.com</span>
+                <span className="font-light">info@10alytics.org</span>
               </div>
             </div>
             <div className="bg-white flex items-center gap-3 rounded-[10px] p-5">
-              <div className="bg-[#FFCAC9] h-[24px] w-[24px] p-1 rounded-full flex items-center justify-center">
-                <IoLocationSharp className=" text-[#CA2421] text-[13px]" />
+              <div className="bg-[#F3E8FF] h-[24px] w-[24px] p-1 rounded-full flex items-center justify-center">
+                <IoLocationSharp className=" text-[#7C3AED] text-[13px]" />
               </div>
               <div className="flex flex-col text-[#333333]">
                 <span className="font-bold">Location</span>
@@ -79,25 +79,25 @@ const Contact = () => {
             <div className="bg-white flex items-center justify-center rounded-[10px] p-5 gap-4">
               <Link
                 href=""
-                className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[41px] w-[41px]"
+                className="bg-[#F3E8FF] text-[#7C3AED] flex justify-center items-center rounded-full h-[41px] w-[41px]"
               >
                 <FaSquareXTwitter size={20} />
               </Link>
               <Link
                 href=""
-                className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[41px] w-[41px]"
+                className="bg-[#F3E8FF] text-[#7C3AED] flex justify-center items-center rounded-full h-[41px] w-[41px]"
               >
                 <FaFacebookSquare size={20} />
               </Link>
               <Link
                 href=""
-                className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[41px] w-[41px]"
+                className="bg-[#F3E8FF] text-[#7C3AED] flex justify-center items-center rounded-full h-[41px] w-[41px]"
               >
                 <FaSquareInstagram size={20} />
               </Link>
               <Link
                 href=""
-                className="bg-[#FFCAC9] text-[#CA2421] flex justify-center items-center rounded-full h-[41px] w-[41px]"
+                className="bg-[#F3E8FF] text-[#7C3AED] flex justify-center items-center rounded-full h-[41px] w-[41px]"
               >
                 <FaLinkedin size={20} />
               </Link>
@@ -185,7 +185,7 @@ const Contact = () => {
              available to you when you register."
         />
         <FAQCard
-          question="How will I learn with nebiant, what is a virtual Instructor-Led class like?"
+          question="How will I learn with 10alytics Business, what is a virtual Instructor-Led class like?"
           answer="Our online classes involve live sessions with instructors, interactive discussions with
              classmates, and practical assignments to apply what you've learned."
         />{" "}

@@ -10,13 +10,13 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import MobileDropdown from "./dropdowns/MobileDropdown";
 import { useAuth } from "../../contexts/AuthContext";
-import Image from "next/image"; 
+import Image from "next/image";
 import Logo from "../10alytics"
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { user } = useAuth();
-  
+
   return (
     <>
       {/* DESKTOP */}
@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link href="/" className="flex-shrink-0">
           <Logo />
         </Link>
-        <nav className="bg-[#FFEFEF] w-[647px] rounded-[10px] py-4 px-6">
+        <nav className="bg-[#7C3AED0A] w-[647px] rounded-[10px] py-4 px-6">
           <ul className="flex justify-between items-center">
             <li className="cursor-pointer">
               <CoursesDropdown />
@@ -49,9 +49,9 @@ const Navbar = () => {
             >
               Go To Dashboard
             </Link>
-            <Image 
-              src="/img/dp2.png" 
-              alt="User profile" 
+            <Image
+              src="/img/dp2.png"
+              alt="User profile"
               width={48}
               height={48}
               className="h-12 w-12 rounded-full"
@@ -77,7 +77,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link href="/" className="flex-shrink-0">
-             <Logo />
+              <Logo />
             </Link>
 
             <RxHamburgerMenu

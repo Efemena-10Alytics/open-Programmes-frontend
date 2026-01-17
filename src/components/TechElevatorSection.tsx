@@ -190,30 +190,30 @@ const TechElevatorSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-red-900 to-black text-white py-16 px-4 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white py-16 px-4 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-950/20 via-transparent to-red-950/20"></div>
-        <div className="absolute top-20 right-20 w-72 h-72 bg-red-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-red-800/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-red-900/10 to-transparent rounded-full"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-950/20 via-transparent to-purple-950/20"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-800/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-purple-900/10 to-transparent rounded-full"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-red-900/30 backdrop-blur-sm border border-red-800/30 rounded-full px-6 py-2 mb-6">
-            <Flame className="w-4 h-4 text-red-400" />
-            <span className="text-red-300 text-sm font-semibold tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-purple-900/30 backdrop-blur-sm border border-purple-800/30 rounded-full px-6 py-2 mb-6">
+            <Flame className="w-4 h-4 text-purple-400" />
+            <span className="text-purple-300 text-sm font-semibold tracking-wide">
               NEW PROGRAM LAUNCH
             </span>
           </div>
 
           <h1 className="text-5xl lg:text-6xl font-black mb-6 tracking-tight">
-            <span className="bg-gradient-to-r from-white via-red-200 to-red-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-purple-200 to-purple-300 bg-clip-text text-transparent">
               Tech
             </span>
-            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent ml-3">
+            <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent ml-3">
               Elevator
             </span>
           </h1>
@@ -248,11 +248,10 @@ const TechElevatorSection = () => {
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(index)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeSection === index
-                      ? "bg-red-600 text-white shadow-lg"
-                      : "bg-red-900/20 text-red-300 hover:bg-red-900/40"
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === index
+                      ? "bg-purple-600 text-white shadow-lg"
+                      : "bg-purple-900/20 text-purple-300 hover:bg-purple-900/40"
+                    }`}
                 >
                   {section.icon}
                   <span className="hidden sm:inline">{section.title}</span>
@@ -263,14 +262,14 @@ const TechElevatorSection = () => {
             {/* Active Section Content */}
             <div className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-gradient-to-br from-red-600 to-red-700 p-3 rounded-xl">
+                <div className="bg-gradient-to-br from-purple-600 to-purple-700 p-3 rounded-xl">
                   {sections[activeSection].icon}
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-white">
                     {sections[activeSection].title}
                   </h2>
-                  <p className="text-red-300 text-sm">
+                  <p className="text-purple-300 text-sm">
                     {sections[activeSection].subtitle}
                   </p>
                 </div>
@@ -281,10 +280,10 @@ const TechElevatorSection = () => {
                 {sections[activeSection].content.map((item, index) => (
                   <div
                     key={index}
-                    className="group relative bg-gradient-to-br from-red-950/40 to-red-900/20 backdrop-blur-sm rounded-xl p-4 border border-red-800/20 hover:border-red-600/40 transition-all duration-300 hover:transform hover:scale-105"
+                    className="group relative bg-gradient-to-br from-purple-950/40 to-purple-900/20 backdrop-blur-sm rounded-xl p-4 border border-purple-800/20 hover:border-purple-600/40 transition-all duration-300 hover:transform hover:scale-105"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="bg-gradient-to-br from-red-600 to-red-700 p-2 rounded-lg shadow-lg flex-shrink-0">
+                      <div className="bg-gradient-to-br from-purple-600 to-purple-700 p-2 rounded-lg shadow-lg flex-shrink-0">
                         {item.icon}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -294,7 +293,7 @@ const TechElevatorSection = () => {
                         <p className="text-gray-300 text-sm mb-3 leading-relaxed">
                           {item.description}
                         </p>
-                        <span className="inline-block bg-red-900/40 text-red-300 px-3 py-1 rounded-full text-xs font-medium">
+                        <span className="inline-block bg-purple-900/40 text-purple-300 px-3 py-1 rounded-full text-xs font-medium">
                           {item.highlight}
                         </span>
                       </div>
@@ -316,7 +315,7 @@ const TechElevatorSection = () => {
                 >
                   <div className="bg-gradient-to-b from-gray-100 to-gray-200 rounded-xl h-full flex flex-col justify-between p-6 relative overflow-hidden">
                     <div className="flex justify-center mb-4">
-                      <div className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
+                      <div className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
                         <TrendingUp className="w-4 h-4" />
                         <span>Floor {activeSection + 1}</span>
                       </div>
@@ -324,7 +323,7 @@ const TechElevatorSection = () => {
 
                     <div className="flex-1 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-pulse">
+                        <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-pulse">
                           {sections[activeSection].icon}
                         </div>
                         <p className="text-xs text-gray-700 font-bold tracking-wide">
@@ -346,7 +345,7 @@ const TechElevatorSection = () => {
 
             {/* Key Stats Cards */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-4 text-center shadow-lg">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-4 text-center shadow-lg">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <FaNairaSign className="w-4 h-4" />
                   <span className="text-xs font-semibold opacity-90">
@@ -354,12 +353,12 @@ const TechElevatorSection = () => {
                   </span>
                 </div>
                 <div className="text-2xl font-black">₦40,000</div>
-                <p className="text-red-200 text-xs">One-time payment</p>
+                <p className="text-purple-200 text-xs">One-time payment</p>
               </div>
 
               <div className="bg-black rounded-xl p-4 text-center shadow-lg">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <Clock className="w-4 h-4 text-red-400" />
+                  <Clock className="w-4 h-4 text-purple-400" />
                   <span className="text-xs font-semibold text-gray-300">
                     DURATION
                   </span>
@@ -395,7 +394,7 @@ const TechElevatorSection = () => {
             <div className="text-center">
               <button
                 onClick={handleEnrollNow}
-                className="group relative bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 w-full justify-center"
+                className="group relative bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 w-full justify-center"
               >
                 <span>ENROLL NOW</span>
                 <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -405,7 +404,7 @@ const TechElevatorSection = () => {
                 href="https://chat.whatsapp.com/FdwH6gjLJvX6qsZk7vZn1C?mode=r_c"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-red-400 hover:text-red-300 flex items-center justify-center gap-2 mt-2"
+                className="text-purple-400 hover:text-purple-300 flex items-center justify-center gap-2 mt-2"
               >
                 <Users className="w-4 h-4" />
                 speak to experts, Join community!

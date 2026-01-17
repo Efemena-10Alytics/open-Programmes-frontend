@@ -47,13 +47,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ''
-  
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-        
+
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
@@ -71,7 +71,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
-        
+
         {/* Facebook Pixel (if using) */}
         {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
           <Script id="facebook-pixel" strategy="afterInteractive">
@@ -89,7 +89,7 @@ export default function RootLayout({
             `}
           </Script>
         )}
-        
+
         {/* Structured Data for SEO */}
         <Script
           id="structured-data"
@@ -101,7 +101,7 @@ export default function RootLayout({
               "@type": "EducationalOrganization",
               "name": "10Alytics Business",
               "description": "10Alytics Business Platform",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://nebiant.com"
+              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://10alyticsbusiness.com"
             })
           }}
         />
@@ -117,7 +117,7 @@ export default function RootLayout({
             </main>
           </Providers>
         </GoogleOAuthProvider>
-        
+
         {/* Facebook Pixel noscript fallback */}
         {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
           <noscript>

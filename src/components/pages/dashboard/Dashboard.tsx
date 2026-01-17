@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import {
@@ -199,11 +199,11 @@ const Dashboard = () => {
   // Create brochure data from cohort data
   const brochureData = cohortData?.cohortCourses?.[0]?.onboardingBrochureUrl
     ? {
-        brochureUrl: cohortData.cohortCourses[0].onboardingBrochureUrl,
-        cohortName: cohortData.name,
-        cohortStartDate: cohortData.startDate,
-        courseTitle: selectedCourse?.title || "Your Course",
-      }
+      brochureUrl: cohortData.cohortCourses[0].onboardingBrochureUrl,
+      cohortName: cohortData.name,
+      cohortStartDate: cohortData.startDate,
+      courseTitle: selectedCourse?.title || "Your Course",
+    }
     : null;
 
   // Countdown timer effect
@@ -454,7 +454,7 @@ const Dashboard = () => {
       return (
         <button
           onClick={() => handlePayment("FULL")}
-          className="bg-red-500 hover:bg-red-600 text-white text-[12px] rounded-full px-5 py-2"
+          className="bg-purple-500 hover:bg-purple-600 text-white text-[12px] rounded-full px-5 py-2"
         >
           Complete Payment to Access Content
         </button>
@@ -470,7 +470,7 @@ const Dashboard = () => {
         return (
           <button
             onClick={() => handlePayment("INSTALLMENT")}
-            className="bg-red-500 hover:bg-red-600 text-white text-[12px] rounded-full px-5 py-2"
+            className="bg-purple-500 hover:bg-purple-600 text-white text-[12px] rounded-full px-5 py-2"
           >
             Pay Installment (₦{unpaidInstallment.amount})
           </button>
@@ -487,7 +487,7 @@ const Dashboard = () => {
         return (
           <button
             onClick={() => handlePayment("THREE_INSTALLMENT")}
-            className="bg-red-500 hover:bg-red-600 text-white text-[12px] rounded-full px-5 py-2"
+            className="bg-purple-500 hover:bg-purple-600 text-white text-[12px] rounded-full px-5 py-2"
           >
             Pay Installment (₦{unpaidInstallment.amount})
           </button>
@@ -502,7 +502,7 @@ const Dashboard = () => {
       return (
         <button
           onClick={() => handlePayment("HALF")}
-          className="bg-red-500 hover:bg-red-600 text-white text-[12px] rounded-full px-5 py-2"
+          className="bg-purple-500 hover:bg-purple-600 text-white text-[12px] rounded-full px-5 py-2"
         >
           Pay Remaining Balance (₦{TOTAL_COURSE_FEE / 2})
         </button>
@@ -513,7 +513,7 @@ const Dashboard = () => {
     return (
       <button
         onClick={() => handlePayment("FULL")}
-        className="bg-red-500 hover:bg-red-600 text-white text-[12px] rounded-full px-5 py-2"
+        className="bg-purple-500 hover:bg-purple-600 text-white text-[12px] rounded-full px-5 py-2"
       >
         Complete Payment to Access Content
       </button>
@@ -561,11 +561,11 @@ const Dashboard = () => {
           Your cohort "{cohortData?.name}" starts on{" "}
           {cohortData?.startDate
             ? new Date(cohortData.startDate).toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
             : "soon"}
         </p>
       </div>
@@ -804,7 +804,7 @@ const Dashboard = () => {
 
               {/* Payment Status Banner */}
               {!canAccessContent && !isNewUser && (
-                <div className="bg-red-50 border border-red-200 rounded-[10px] p-4 mb-4">
+                <div className="bg-purple-50 border border-purple-200 rounded-[10px] p-4 mb-4">
                   <div className="flex items-start gap-3">
                     <Image
                       src="/svg/warning.svg"
@@ -814,10 +814,10 @@ const Dashboard = () => {
                       className="w-5 h-5 mt-1"
                     />
                     <div>
-                      <h3 className="text-red-700 font-bold mb-2">
+                      <h3 className="text-purple-700 font-bold mb-2">
                         Account Inactive - Payment Overdue
                       </h3>
-                      <p className="text-red-600 text-sm mb-3">
+                      <p className="text-purple-600 text-sm mb-3">
                         Please check your email for payment instructions and
                         complete your payment to restore access.
                       </p>
@@ -852,7 +852,7 @@ const Dashboard = () => {
                 <QuickInfoCard
                   title="Certification"
                   number={certificationProgress}
-                  color="#CA24210F"
+                  color="#7C3AED0F"
                   icon="/svg/badge2.svg"
                 />
               </div>
@@ -881,7 +881,7 @@ const Dashboard = () => {
                         height={48}
                         className="w-12 h-12 mx-auto mb-3"
                       />
-                      <h3 className="text-red-600 font-bold mb-2">
+                      <h3 className="text-purple-600 font-bold mb-2">
                         Content Locked
                       </h3>
                       <p className="text-gray-600 text-sm mb-4">
@@ -951,7 +951,7 @@ const Dashboard = () => {
                         height={48}
                         className="w-12 h-12 mx-auto mb-3"
                       />
-                      <h3 className="text-red-600 font-bold mb-2">
+                      <h3 className="text-purple-600 font-bold mb-2">
                         Content Locked
                       </h3>
                       <p className="text-gray-600 text-sm mb-4">
@@ -999,7 +999,7 @@ const Dashboard = () => {
                       height={64}
                       className="w-16 h-16 mx-auto mb-3"
                     />
-                    <h3 className="text-red-600 font-bold mb-2">
+                    <h3 className="text-purple-600 font-bold mb-2">
                       Content Locked
                     </h3>
                     <p className="text-gray-600 text-sm mb-4">
@@ -1016,7 +1016,7 @@ const Dashboard = () => {
                     <Loader />
                   </div>
                 ) : progressError ? (
-                  <div className="bg-white p-4 rounded-[10px] text-red-500 text-sm">
+                  <div className="bg-white p-4 rounded-[10px] text-purple-500 text-sm">
                     Error loading learning progress
                   </div>
                 ) : (
@@ -1076,7 +1076,7 @@ const Dashboard = () => {
                       <Loader />
                     </div>
                   ) : leaderboardError ? (
-                    <div className="text-red-500 p-2 text-xs text-center">
+                    <div className="text-purple-500 p-2 text-xs text-center">
                       Failed to load leaderboard
                     </div>
                   ) : leaderboard.length === 0 ? (
@@ -1094,26 +1094,24 @@ const Dashboard = () => {
                             15,
                             ((totalParticipants - entry.rank + 1) /
                               totalParticipants) *
-                              100
+                            100
                           );
 
                           return (
                             <div
                               key={entry.userId}
-                              className={`py-2 ${
-                                entry.rank < leaderboard.length
-                                  ? "border-b border-gray-100"
-                                  : ""
-                              }`}
+                              className={`py-2 ${entry.rank < leaderboard.length
+                                ? "border-b border-gray-100"
+                                : ""
+                                }`}
                             >
                               <div className="flex items-center gap-2 mb-1.5">
                                 <div
-                                  className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${
-                                    entry.rank <= 3
-                                      ? "text-white " +
-                                        getRankBgStyle(entry.rank)
-                                      : "bg-gray-100 text-gray-700"
-                                  }`}
+                                  className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${entry.rank <= 3
+                                    ? "text-white " +
+                                    getRankBgStyle(entry.rank)
+                                    : "bg-gray-100 text-gray-700"
+                                    }`}
                                 >
                                   {entry.rank}
                                 </div>
@@ -1155,7 +1153,7 @@ const Dashboard = () => {
                         height={48}
                         className="w-12 h-12 mx-auto mb-3"
                       />
-                      <h3 className="text-red-600 font-bold mb-2">
+                      <h3 className="text-purple-600 font-bold mb-2">
                         Content Locked
                       </h3>
                       <p className="text-gray-600 text-sm">
@@ -1224,7 +1222,7 @@ const Dashboard = () => {
                         height={48}
                         className="w-12 h-12 mx-auto mb-3"
                       />
-                      <h3 className="text-red-600 font-bold mb-2">
+                      <h3 className="text-purple-600 font-bold mb-2">
                         Content Locked
                       </h3>
                       <p className="text-gray-600 text-sm">
@@ -1242,7 +1240,7 @@ const Dashboard = () => {
                       <div className="flex items-center gap-2">
                         <IoIosCheckmarkCircleOutline className="text-lg" />
                         <span>Submit your Quiz</span>
-                        <div className="border-[0.4px] border-[#FA5252] rounded-[2px] text-[#FA5252] text-[8px] p-1">
+                        <div className="border-[0.4px] border-[#A78BFA] rounded-[2px] text-[#A78BFA] text-[8px] p-1">
                           +1XP
                         </div>
                       </div>
@@ -1251,21 +1249,21 @@ const Dashboard = () => {
                         <span className="strike-through">
                           Meet your daily streak of 4 daily videos
                         </span>
-                        <div className="border-[0.4px] border-[#FA5252] rounded-[2px] text-[#FA5252] text-[8px] p-1">
+                        <div className="border-[0.4px] border-[#A78BFA] rounded-[2px] text-[#A78BFA] text-[8px] p-1">
                           +1XP
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
                         <IoIosCheckmarkCircleOutline className="text-lg" />
                         <span>Solve your project</span>
-                        <div className="border-[0.4px] border-[#FA5252] rounded-[2px] text-[#FA5252] text-[8px] p-1">
+                        <div className="border-[0.4px] border-[#A78BFA] rounded-[2px] text-[#A78BFA] text-[8px] p-1">
                           +1XP
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
                         <IoIosCheckmarkCircleOutline className="text-lg" />
                         <span>Join live session</span>
-                        <div className="border-[0.4px] border-[#FA5252] rounded-[2px] text-[#FA5252] text-[8px] p-1">
+                        <div className="border-[0.4px] border-[#A78BFA] rounded-[2px] text-[#A78BFA] text-[8px] p-1">
                           +1XP
                         </div>
                       </div>
@@ -1284,7 +1282,7 @@ const Dashboard = () => {
                         height={48}
                         className="w-12 h-12 mx-auto mb-3"
                       />
-                      <h3 className="text-red-600 font-bold mb-2">
+                      <h3 className="text-purple-600 font-bold mb-2">
                         Content Locked
                       </h3>
                       <p className="text-gray-600 text-sm">
@@ -1317,7 +1315,7 @@ const Dashboard = () => {
                           key={i}
                           className="bg-white flex justify-center items-center w-full rounded-[4px] p-2"
                         >
-                          <div className="bg-[#FFF0F0] flex justify-center items-center h-[27px] w-[27px] rounded-[3px]">
+                          <div className="bg-[#F3E8FF] flex justify-center items-center h-[27px] w-[27px] rounded-[3px]">
                             <Image
                               src="/svg/chat3.svg"
                               alt="Chat"

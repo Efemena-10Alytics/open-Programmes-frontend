@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { ProtectedRoute } from "@/components/utilities/ProtectedRoute";
 import PaymentPage from "@/components/pages/Payments";
+import Loader from '@/components/utilities/Loader';
 
 interface PageProps {
   params: Promise<{
@@ -8,25 +9,12 @@ interface PageProps {
   }>;
 }
 
-function PaymentPageFallback() {
-  return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-        <div className="flex justify-center my-8">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-white"></div>
-        </div>
-        <h1 className="text-2xl font-bold text-blue-600 mb-2">Loading...</h1>
-      </div>
-    </div>
-  )
-}
-
 export default async function PaymentPageWrapper(props: PageProps) {
   const params = await props.params;
   const { courseId } = params;
 
   return (
-    <Suspense fallback={<PaymentPageFallback />}>
+    <Suspense fallback={<Loader />}>
       <ProtectedRoute>
         <PaymentPage />
       </ProtectedRoute>

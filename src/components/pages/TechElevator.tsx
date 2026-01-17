@@ -133,7 +133,7 @@ const TechElevatorPage = () => {
       outcome:
         "Gain clarity on how to position for global roles and ask direct questions to mentors",
       icon: <Globe className="w-6 h-6" />,
-      color: "from-red-600 to-red-800",
+      color: "from-purple-600 to-purple-800",
     },
   ];
 
@@ -207,7 +207,7 @@ const TechElevatorPage = () => {
           {/* Left Content */}
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-full px-6 py-2 mb-2">
-              <Flame className="w-4 h-4 text-red-400" />
+              <Flame className="w-4 h-4 text-purple-400" />
               <span className="text-gray-300 text-sm font-semibold tracking-wide">
                 4-WEEK INTENSIVE PROGRAM
               </span>
@@ -218,7 +218,7 @@ const TechElevatorPage = () => {
                 Tech
               </span>
 
-              <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">
                 Elevator
               </span>
             </h1>
@@ -245,7 +245,7 @@ const TechElevatorPage = () => {
                 onClick={handleOpenForm}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-black/40 backdrop-blur-sm bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 border border-gray-800/50 hover:border-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center gap-3 justify-center cursor-pointer"
+                className="group bg-black/40 backdrop-blur-sm bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 border border-gray-800/50 hover:border-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center gap-3 justify-center cursor-pointer"
               >
                 <Users className="w-5 h-5" />
                 <span>Join Community</span>
@@ -257,12 +257,12 @@ const TechElevatorPage = () => {
           <div className="relative">
             <div className="relative bg-black/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-8 shadow-2xl">
               <div className="aspect-video bg-gradient-to-br from-gray-900 to-black rounded-xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-purple-600/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-600/20"></div>
                 <button
                   onClick={() => setShowVideo(true)}
                   className="relative group"
                 >
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                     <Play className="w-8 h-8 ml-1" />
                   </div>
                 </button>
@@ -299,7 +299,7 @@ const TechElevatorPage = () => {
                 key={index}
                 className="group relative bg-black/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-gray-700 transition-all duration-300"
               >
-                <div className="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform">
+                <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 rounded-lg w-fit mb-4 group-hover:scale-110 transition-transform">
                   {feature.icon}
                 </div>
                 <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
@@ -327,17 +327,15 @@ const TechElevatorPage = () => {
               {weeks.map((week, index) => (
                 <div
                   key={index}
-                  className={`cursor-pointer transition-all duration-300 ${
-                    activeWeek === index ? "transform scale-105" : ""
-                  }`}
+                  className={`cursor-pointer transition-all duration-300 ${activeWeek === index ? "transform scale-105" : ""
+                    }`}
                   onClick={() => setActiveWeek(index)}
                 >
                   <div
-                    className={`relative bg-black/40 backdrop-blur-sm border rounded-xl p-6 ${
-                      activeWeek === index
-                        ? "border-red-600"
+                    className={`relative bg-black/40 backdrop-blur-sm border rounded-xl p-6 ${activeWeek === index
+                        ? "border-purple-600"
                         : "border-gray-800/50 hover:border-gray-700"
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center gap-4">
                       <div
@@ -368,7 +366,7 @@ const TechElevatorPage = () => {
                     <h3 className="text-2xl font-bold">
                       Week {weeks[activeWeek].week}
                     </h3>
-                    <p className="text-red-400 font-semibold">
+                    <p className="text-purple-400 font-semibold">
                       {weeks[activeWeek].theme}
                     </p>
                   </div>
@@ -395,8 +393,8 @@ const TechElevatorPage = () => {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 border border-red-600/30 rounded-lg p-4">
-                  <h5 className="font-semibold mb-2 text-red-300">
+                <div className="bg-gradient-to-r from-purple-600/20 to-purple-700/20 border border-purple-600/30 rounded-lg p-4">
+                  <h5 className="font-semibold mb-2 text-purple-300">
                     Week Outcome:
                   </h5>
                   <p className="text-sm text-gray-300">

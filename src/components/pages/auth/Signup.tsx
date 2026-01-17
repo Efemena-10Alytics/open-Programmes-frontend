@@ -13,6 +13,7 @@ import { usePasswordValidation } from "../../../hooks/usePasswordValidation";
 import { signup, login } from "../../../lib/auth";
 import { setTokens } from "../../../lib/tokenStorage";
 import GoogleOAuth from "../../auth/GoogleOAuth";
+import Logo from "../../10alytics";
 
 const Signup = () => {
   const { login: authLogin } = useAuth();
@@ -39,9 +40,9 @@ const Signup = () => {
 
       <div className="lg:flex-[0.5] overflow-y-scroll px-5 lg:px-0">
         <div className="lg:w-[514px] mx-auto my-[60px]">
-          <a href="/" className="flex items-center gap-2 mb-5">
-            <img src="svg/logo.svg" alt="" className="mb-2" />
-          </a>
+          <Link href="/" className="flex items-center gap-2 mb-5">
+            <Logo />
+          </Link>
           {activeView.form && (
             <div>
               <div className="flex flex-col gap-7">
@@ -314,7 +315,7 @@ const Signup = () => {
             </h1>
             <p className="text-[24px] font-light leading-[31px]">
               Learn. Grow. Get Hired. Join thousands of students learning at
-              nebiant. Explore courses that employers are hiring for.
+              10alytics Business. Explore courses that employers are hiring for.
             </p>
             <div className="flex gap-3 items-center">
               <img src="img/people.png" alt="" />

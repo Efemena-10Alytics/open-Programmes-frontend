@@ -10,6 +10,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { login } from "../../../lib/auth";
 import { setTokens } from "../../../lib/tokenStorage";
 import GoogleOAuth from "../../auth/GoogleOAuth";
+import Logo from "../../10alytics";
 
 const Login = () => {
   const { login: authLogin } = useAuth();
@@ -30,9 +31,9 @@ const Login = () => {
     <main className="lg:flex h-screen">
       <div className="lg:flex-[0.5] px-5 lg:px-0">
         <div className="w-full lg:w-[514px] mx-auto my-[60px]">
-          <a href="/" className="flex items-center gap-2 mb-5">
-            <img src="svg/logo.svg" alt="" className="mb-2" />
-          </a>
+          <Link href="/" className="flex items-center gap-2 mb-5">
+            <Logo />
+          </Link>
           {activeView.form && (
             <div>
               <div className="flex flex-col gap-7">
@@ -180,7 +181,7 @@ const Login = () => {
             </h1>
             <p className="text-[24px] font-light leading-[31px]">
               Continue from where you stopped. Learn. Grow. Get Hired. Join
-              thousands of students learning at nebiant.
+              thousands of students learning at 10alytics Business.
             </p>
             <div className="flex gap-3 items-center">
               <img src="img/people.png" alt="" />

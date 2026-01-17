@@ -1,10 +1,10 @@
-'use client' 
+'use client'
 
 import { useState } from "react";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { TiStarFullOutline } from "react-icons/ti";
 // CHANGED: React Router imports replaced with Next.js imports
-import { useParams } from "next/navigation"; 
+import { useParams } from "next/navigation";
 import Link from "next/link"; // CHANGED: Next.js Link
 import CourseBenefitCard from "../utilities/CourseBenefitCard";
 import CourseWeekPanel from "../utilities/CourseWeekPanel";
@@ -24,8 +24,8 @@ const CourseDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // CHANGED: Next.js useParams returns an object, need to extract courseID
   const params = useParams() as any;
-  const courseID = params.courseID as string || "";
-  
+  const courseID = params.courseId as string || "";
+
   const { user, userID } = useAuth();
 
   const fetchCourse = async (): Promise<CourseModel> => {
@@ -47,18 +47,18 @@ const CourseDetails = () => {
 
   console.log("user", user);
   console.log("course", course);
-  
+
   if (isLoading) return <Loader />;
   if (error) return <div>An error occurred: {error.message}</div>;
   if (!course) return <div>No course found</div>;
-  
+
   return (
     <main>
       <section className="bg-black rounded-[24px] w-11/12 mx-auto px-6 py-10 text-white mt-6">
         <h1 className="text-[32px] lg:text-[40px]">Course</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-0 justify-between items-center">
           <div className="flex flex-col gap-5">
-            <div className="bg-[#FEE6E6] flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#CA24211F]">
+            <div className="bg-[#F3E8FF] flex items-center gap-1 py-1 px-2 h-[32px] w-max rounded-full border border-[#7C3AED1F]">
               <img src="/svg/badge.svg" alt="" />
               <span className="text-[12px] text-[#454545]">
                 Certification Course
@@ -85,7 +85,7 @@ const CourseDetails = () => {
                 })}
               </div>
             </div>
-            <div className="bg-[#FFFFFF] w-[315px] flex items-center justify-between border-[2px] border-[#FFB5B4] rounded-[86px] p-1">
+            <div className="bg-[#FFFFFF] w-[315px] flex items-center justify-between border-[2px] border-[#E9D5FF] rounded-[86px] p-1">
               <img src="/svg/43.svg" alt="" />
 
               <div>
@@ -282,7 +282,7 @@ const CourseDetails = () => {
         </div>
       </section>
 
-      <section className="bg-[#FFB5B447] flex justify-center py-[70px]">
+      <section className="bg-[#E9D5FF47] flex justify-center py-[70px]">
         <img src="/img/alumni.png" alt="" />
         <h1 className="absolute w-[40%] text-[40px] lg:text-[128px] font-bold text-center mt-[120px]">
           Meet Our Alumni
@@ -316,7 +316,7 @@ const CourseDetails = () => {
             />
             <CourseBenefitCard
               heading="Alumni Community & Network"
-              details="Join a thriving community of Nebiant alumni, fostering connections, collaboration, and ongoing learning opportunities beyond the duration of your course."
+              details="Join a thriving community of 10alytics Business alumni, fostering connections, collaboration, and ongoing learning opportunities beyond the duration of your course."
             />
             <CourseBenefitCard
               heading="Lifelong Access to Learning Resources"
@@ -327,7 +327,7 @@ const CourseDetails = () => {
       </section>
 
       <section className="w-11/12 mx-auto py-[100px]">
-        <div className="flex flex-col gap-7 border border-[#e08a8a] rounded-[24px] p-10">
+        <div className="flex flex-col gap-7 border border-[#C4B5FD] rounded-[24px] p-10">
           <h2 className="text-[#333333] text-[24px] font-bold">
             About the Instructor
           </h2>
@@ -385,7 +385,7 @@ const CourseDetails = () => {
           </div>
           <div className="flex flex-col gap-3 text-[#828282BA] text-[14px] font-light">
             {course?.course_instructor_description &&
-            typeof course.course_instructor_description === "string"
+              typeof course.course_instructor_description === "string"
               ? parse(course.course_instructor_description)
               : "No instructor description available."}
           </div>
