@@ -8,11 +8,11 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import api from "../../lib/api";
 import { ProtectedRoute } from "../utilities/ProtectedRoute";
 import "react-datepicker/dist/react-datepicker.css";
-import { 
-  FaCheckCircle, 
-  FaMoneyCheckAlt, 
-  FaShieldAlt, 
-  FaClock, 
+import {
+  FaCheckCircle,
+  FaMoneyCheckAlt,
+  FaShieldAlt,
+  FaClock,
   FaGraduationCap,
   FaUnlock,
   FaCalendarAlt,
@@ -47,11 +47,11 @@ type PaymentPlanConfig = {
   popular?: boolean;
   savings?: number;
 } & (
-  | { type: "FULL"; amount: number }
-  | { type: "HALF"; installments: number[] }
-  | { type: "THREE_INSTALLMENT"; installments: InstallmentItem[] }
-  | { type: "INSTALLMENT"; installments: InstallmentItem[] }
-);
+    | { type: "FULL"; amount: number }
+    | { type: "HALF"; installments: number[] }
+    | { type: "THREE_INSTALLMENT"; installments: InstallmentItem[] }
+    | { type: "INSTALLMENT"; installments: InstallmentItem[] }
+  );
 
 type PaymentPlansType = {
   [key in Exclude<PaymentPlan, null>]: PaymentPlanConfig;
@@ -95,23 +95,23 @@ const PAYMENT_PLANS: PaymentPlansType = {
     paymentPlan: "THREE_INSTALLMENTS",
     popular: true,
     installments: [
-      { 
-        amount: 85000, 
-        label: "Cohort Start Payment", 
+      {
+        amount: 85000,
+        label: "Cohort Start Payment",
         description: "Secure your spot when your cohort begins",
         cumulativeAmount: 85000,
         milestone: "Immediate Course Access"
       },
-      { 
-        amount: 85000, 
-        label: "1 Month Payment", 
+      {
+        amount: 85000,
+        label: "1 Month Payment",
         description: "Due 1 month into your cohort program",
         cumulativeAmount: 170000,
         milestone: "Advanced Modules Unlocked"
       },
-      { 
-        amount: 80000, 
-        label: "2 Month Payment", 
+      {
+        amount: 80000,
+        label: "2 Month Payment",
         description: "Due 2 months into your cohort program",
         cumulativeAmount: 250000,
         milestone: "Program Completion & Certification"
@@ -131,30 +131,30 @@ const PAYMENT_PLANS: PaymentPlansType = {
     description: "Maximum flexibility with cohort-aligned milestone payments",
     paymentPlan: "FOUR_INSTALLMENTS",
     installments: [
-      { 
-        amount: 30000, 
-        label: "Seat Reservation", 
+      {
+        amount: 30000,
+        label: "Seat Reservation",
         description: "Reserve your spot in your chosen cohort",
         cumulativeAmount: 30000,
         milestone: "Seat Confirmed"
       },
-      { 
-        amount: 55000, 
-        label: "Cohort Access", 
+      {
+        amount: 55000,
+        label: "Cohort Access",
         description: "Complete payment for full course access at cohort start",
         cumulativeAmount: 85000,
         milestone: "Full Course Access"
       },
-      { 
-        amount: 85000, 
-        label: "1 Month Payment", 
+      {
+        amount: 85000,
+        label: "1 Month Payment",
         description: "Due 1 month into your cohort program",
         cumulativeAmount: 170000,
         milestone: "Advanced Content Unlocked"
       },
-      { 
-        amount: 80000, 
-        label: "2 Month Payment", 
+      {
+        amount: 80000,
+        label: "2 Month Payment",
         description: "Due 2 months into your cohort program",
         cumulativeAmount: 250000,
         milestone: "Program Completion"
@@ -175,12 +175,12 @@ const PaymentPage = () => {
   const router = useRouter();
   const params = useParams();
   const courseId = params?.courseId as string;
-  
+
   const [selectedPlan, setSelectedPlan] = useState<PaymentPlan>(null);
   const [selectedCohort, setSelectedCohort] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [showPlans, setShowPlans] = useState(false);
-  
+
   // Ref for the payment button to scroll to
   const paymentButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -188,15 +188,21 @@ const PaymentPage = () => {
   const getAvailableCohorts = () => {
     const today = new Date();
     const cohorts: string[] = [];
-    
-    // Get next 2 months only (current month + next month)
-    for (let i = 1; i <= 2; i++) {
+
+    // In development, allow selecting current month (0) for testing
+    // In production, default restriction applies (starts from next month, 1)
+    // NOTE: Revert this or ensure strictly for dev before live deployment if needed, 
+    // though the ENV check handles it safely.
+    const startOffset = process.env.NEXT_PUBLIC_NODE_ENV === "development" ? 0 : 1;
+    const numberOfCohorts = 2;
+
+    for (let i = startOffset; i < startOffset + numberOfCohorts; i++) {
       const date = new Date(today.getFullYear(), today.getMonth() + i, 1);
       const monthName = date.toLocaleDateString('en-US', { month: 'long' });
       const year = date.getFullYear();
       cohorts.push(`${monthName} ${year} Cohort`);
     }
-    
+
     return cohorts;
   };
 
@@ -237,7 +243,7 @@ const PaymentPage = () => {
           cohortName: selectedCohort,
         };
       }
-      
+
       const { data } = await api.post("/api/initiate-payment", payload);
       return data;
     },
@@ -256,7 +262,7 @@ const PaymentPage = () => {
   useEffect(() => {
     if (selectedPlan && selectedCohort && paymentButtonRef.current) {
       setTimeout(() => {
-        paymentButtonRef.current?.scrollIntoView({ 
+        paymentButtonRef.current?.scrollIntoView({
           behavior: 'smooth',
           block: 'center'
         });
@@ -266,11 +272,11 @@ const PaymentPage = () => {
 
   const handlePlanSelect = (planKey: PaymentPlan) => {
     setSelectedPlan(planKey);
-    
+
     // If cohort is already selected, scroll to payment button
     if (selectedCohort && paymentButtonRef.current) {
       setTimeout(() => {
-        paymentButtonRef.current?.scrollIntoView({ 
+        paymentButtonRef.current?.scrollIntoView({
           behavior: 'smooth',
           block: 'center'
         });
@@ -280,11 +286,11 @@ const PaymentPage = () => {
 
   const handleCohortSelect = (cohort: string) => {
     setSelectedCohort(cohort);
-    
+
     // If plan is already selected, scroll to payment button
     if (selectedPlan && paymentButtonRef.current) {
       setTimeout(() => {
-        paymentButtonRef.current?.scrollIntoView({ 
+        paymentButtonRef.current?.scrollIntoView({
           behavior: 'smooth',
           block: 'center'
         });
@@ -447,9 +453,9 @@ const PaymentPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="w-full bg-red-100 rounded-full h-2">
-                <div 
+                <div
                   className="bg-gradient-to-r from-red-500 to-rose-500 h-2 rounded-full transition-all duration-500"
                   style={{ width: `${((installment.cumulativeAmount || 0) / TOTAL_COURSE_FEE) * 100}%` }}
                 />
@@ -497,12 +503,12 @@ const PaymentPage = () => {
             <FaShieldAlt />
             <span>Secure Payment System</span>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Invest in Your Future
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-600"> Today</span>
           </h1>
-          
+
           <div className="bg-gradient-to-r from-red-100 to-rose-100 p-6 rounded-2xl border border-red-200 max-w-3xl mx-auto mb-8">
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               <div className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">
@@ -649,11 +655,10 @@ const PaymentPage = () => {
                   <div
                     key={planKey}
                     onClick={() => handlePlanSelect(planKey as PaymentPlan)}
-                    className={`relative p-8 rounded-3xl border-2 cursor-pointer transition-all duration-500 transform hover:scale-[1.02] ${
-                      selectedPlan === planKey
+                    className={`relative p-8 rounded-3xl border-2 cursor-pointer transition-all duration-500 transform hover:scale-[1.02] ${selectedPlan === planKey
                         ? "border-red-500 bg-gradient-to-br from-red-50 to-rose-50 shadow-2xl scale-[1.02]"
                         : "border-gray-200 bg-white hover:border-red-300 hover:shadow-xl"
-                    }`}
+                      }`}
                   >
                     {plan.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -685,10 +690,9 @@ const PaymentPage = () => {
                           </div>
                         </div>
                       </div>
-                      
-                      <div className={`transition-all duration-300 ${
-                        selectedPlan === planKey ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                      }`}>
+
+                      <div className={`transition-all duration-300 ${selectedPlan === planKey ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}>
                         <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                           <FaCheckCircle className="text-white" />
                         </div>
@@ -733,10 +737,10 @@ const PaymentPage = () => {
                   ) : (
                     <>
                       <FaMoneyCheckAlt className="text-xl" />
-                      {existingPayment?.status === "BALANCE_HALF_PAYMENT" 
-                        ? "Pay Remaining Balance" 
-                        : selectedPlan === "FULL" 
-                          ? "Pay Full Amount" 
+                      {existingPayment?.status === "BALANCE_HALF_PAYMENT"
+                        ? "Pay Remaining Balance"
+                        : selectedPlan === "FULL"
+                          ? "Pay Full Amount"
                           : "Start Payment Plan"
                       }
                     </>

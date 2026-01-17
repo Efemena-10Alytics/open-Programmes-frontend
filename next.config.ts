@@ -6,6 +6,16 @@ const nextConfig: NextConfig = {
     'react-datepicker',
     'react-datetime-picker',
   ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 export default nextConfig
