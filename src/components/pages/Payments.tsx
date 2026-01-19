@@ -193,7 +193,7 @@ const PaymentPage = () => {
     // In production, default restriction applies (starts from next month, 1)
     // NOTE: Revert this or ensure strictly for dev before live deployment if needed, 
     // though the ENV check handles it safely.
-    const startOffset = process.env.NEXT_PUBLIC_NODE_ENV === "development" ? 0 : 1;
+    const startOffset = process.env.NEXT_PUBLIC_NODE_ENV === "development" || "production" ? 0 : 1;
     const numberOfCohorts = 2;
 
     for (let i = startOffset; i < startOffset + numberOfCohorts; i++) {
