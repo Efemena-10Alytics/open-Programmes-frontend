@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: '10Alytics Business Platform',
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', type: 'image/svg+xml' },
       { url: '/favicon.ico', type: 'image/x-icon' },
     ],
     shortcut: '/favicon.ico',
