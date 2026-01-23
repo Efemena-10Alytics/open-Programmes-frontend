@@ -374,19 +374,19 @@ const PaymentPage = () => {
   const renderInstallmentDetails = (plan: PaymentPlanConfig) => {
     if (plan.type === "FULL") {
       return (
-        <div className="bg-gradient-to-r from-red-50 to-rose-50 p-6 rounded-xl border border-red-200">
+        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl border border-purple-200">
           <div className="text-center">
-            <div className="text-3xl font-bold text-red-700 mb-2">
+            <div className="text-3xl font-bold text-purple-700 mb-2">
               ₦{plan.amount.toLocaleString()}
             </div>
             <div className="flex items-center justify-center gap-2 mb-2">
               <span className="text-gray-500 line-through">₦{ORIGINAL_COURSE_FEE.toLocaleString()}</span>
-              <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-medium">
+              <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">
                 Save ₦{(ORIGINAL_COURSE_FEE - plan.amount).toLocaleString()}
               </span>
             </div>
-            <p className="text-red-600 font-medium">One-time payment</p>
-            <div className="mt-4 flex items-center justify-center gap-2 text-red-600">
+            <p className="text-purple-600 font-medium">One-time payment</p>
+            <div className="mt-4 flex items-center justify-center gap-2 text-purple-600">
               <FaUnlock className="text-lg" />
               <span className="text-sm font-medium">Instant full access</span>
             </div>
@@ -399,16 +399,16 @@ const PaymentPage = () => {
       return (
         <div className="space-y-4">
           {plan.installments.map((amount, idx) => (
-            <div key={idx} className="bg-gradient-to-r from-red-50 to-pink-50 p-4 rounded-lg border border-red-200">
+            <div key={idx} className="bg-gradient-to-r from-purple-50 to-indigo-50 p-4 rounded-lg border border-purple-200">
               <div className="flex justify-between items-center">
                 <div>
-                  <h4 className="font-semibold text-red-900">Payment {idx + 1}</h4>
-                  <p className="text-sm text-red-600">
+                  <h4 className="font-semibold text-purple-900">Payment {idx + 1}</h4>
+                  <p className="text-sm text-purple-600">
                     {idx === 0 ? "Initial payment for access" : "Final payment"}
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-xl font-bold text-red-700">
+                  <div className="text-xl font-bold text-purple-700">
                     ₦{amount.toLocaleString()}
                   </div>
                   {idx === 0 && (
@@ -426,37 +426,37 @@ const PaymentPage = () => {
       return (
         <div className="space-y-4">
           {plan.installments.map((installment, idx) => (
-            <div key={idx} className="bg-gradient-to-r from-red-50 to-rose-50 p-5 rounded-xl border border-red-200 hover:shadow-lg transition-shadow duration-300">
+            <div key={idx} className="bg-gradient-to-r from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200 hover:shadow-lg transition-shadow duration-300">
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-medium">
+                    <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">
                       Step {idx + 1}
                     </span>
-                    <h4 className="font-semibold text-red-900">{installment.label}</h4>
+                    <h4 className="font-semibold text-purple-900">{installment.label}</h4>
                   </div>
-                  <p className="text-sm text-red-600 mb-2">{installment.description}</p>
-                  <div className="flex items-center gap-2 text-red-700">
+                  <p className="text-sm text-purple-600 mb-2">{installment.description}</p>
+                  <div className="flex items-center gap-2 text-purple-700">
                     <MdVerified className="text-sm" />
                     <span className="text-xs font-medium">{installment.milestone}</span>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xl font-bold text-red-700 mb-1">
+                  <div className="text-xl font-bold text-purple-700 mb-1">
                     ₦{installment.amount.toLocaleString()}
                   </div>
                   {idx === 0 && (
                     <div className="text-xs text-gray-500 line-through">₦{(ORIGINAL_COURSE_FEE * 0.3).toLocaleString()}</div>
                   )}
-                  <div className="text-xs text-red-500">
+                  <div className="text-xs text-purple-500">
                     Total: ₦{installment.cumulativeAmount?.toLocaleString()}
                   </div>
                 </div>
               </div>
 
-              <div className="w-full bg-red-100 rounded-full h-2">
+              <div className="w-full bg-purple-100 rounded-full h-2">
                 <div
-                  className="bg-gradient-to-r from-red-500 to-rose-500 h-2 rounded-full transition-all duration-500"
+                  className="bg-gradient-to-r from-purple-500 to-indigo-500 h-2 rounded-full transition-all duration-500"
                   style={{ width: `${((installment.cumulativeAmount || 0) / TOTAL_COURSE_FEE) * 100}%` }}
                 />
               </div>
@@ -468,13 +468,13 @@ const PaymentPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50">
-      <nav className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-red-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50">
+      <nav className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-purple-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Logo />
           <button
             onClick={() => router.back()}
-            className="text-gray-600 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-red-50"
+            className="text-gray-600 hover:text-purple-500 transition-colors p-2 rounded-full hover:bg-purple-50"
           >
             <IoCloseOutline className="text-2xl" />
           </button>
@@ -499,24 +499,24 @@ const PaymentPage = () => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-red-200">
+          <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-purple-200">
             <FaShieldAlt />
             <span>Secure Payment System</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Invest in Your Future
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-600"> Today</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600"> Today</span>
           </h1>
 
-          <div className="bg-gradient-to-r from-red-100 to-rose-100 p-6 rounded-2xl border border-red-200 max-w-3xl mx-auto mb-8">
+          <div className="bg-gradient-to-r from-purple-100 to-indigo-100 p-6 rounded-2xl border border-purple-200 max-w-3xl mx-auto mb-8">
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <div className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+              <div className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                 LIMITED TIME OFFER
               </div>
               <div className="text-center md:text-left">
                 <p className="text-gray-800 font-medium">
-                  Get <span className="font-bold text-red-700">₦100,000 OFF</span> the original ₦350,000 course fee!
+                  Get <span className="font-bold text-purple-700">₦100,000 OFF</span> the original ₦350,000 course fee!
                 </p>
                 <p className="text-sm text-gray-606 mt-1">
                   Pay only ₦250,000 now while this discount lasts
@@ -526,7 +526,7 @@ const PaymentPage = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-xl p-8 mb-12 border border-red-100">
+        <div className="bg-white rounded-3xl shadow-xl p-8 mb-12 border border-purple-100">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How Our Payment System Works</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -536,12 +536,12 @@ const PaymentPage = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-red-400 to-rose-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-purple-400 to-indigo-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <FaCalendarAlt className="text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose Your Cohort</h3>
               <p className="text-gray-600 text-sm mb-2">
-                <span className="font-bold text-red-600">Next 2 cohorts only</span>
+                <span className="font-bold text-purple-600">Next 2 cohorts only</span>
               </p>
               <p className="text-gray-500 text-sm">
                 Select which cohort you want to join from the available options
@@ -549,12 +549,12 @@ const PaymentPage = () => {
             </div>
 
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-red-500 to-pink-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-purple-500 to-indigo-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <MdTrendingUp className="text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Select Payment Plan</h3>
               <p className="text-gray-600 text-sm mb-2">
-                <span className="font-bold text-red-600">4 flexible options</span>
+                <span className="font-bold text-purple-600">4 flexible options</span>
               </p>
               <p className="text-gray-500 text-sm">
                 Choose full payment, half payment, or installment plans aligned with your cohort
@@ -562,12 +562,12 @@ const PaymentPage = () => {
             </div>
 
             <div className="text-center group">
-              <div className="bg-gradient-to-br from-rose-400 to-red-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-indigo-400 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <FaGraduationCap className="text-white text-2xl" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Join Your Cohort</h3>
               <p className="text-gray-600 text-sm mb-2">
-                <span className="font-bold text-red-600">Cohort-based learning</span>
+                <span className="font-bold text-purple-600">Cohort-based learning</span>
               </p>
               <p className="text-gray-500 text-sm">
                 Start learning with peers in your chosen cohort, with payments timed to program milestones
@@ -580,7 +580,7 @@ const PaymentPage = () => {
           <div className="text-center mb-12">
             <button
               onClick={() => setShowPlans(true)}
-              className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               Choose Your Payment Plan
             </button>
@@ -642,9 +642,9 @@ const PaymentPage = () => {
               </div>
 
               {error && (
-                <div className="mb-8 p-4 bg-red-50 text-red-700 rounded-xl border border-red-200 shadow-lg">
+                <div className="mb-8 p-4 bg-purple-50 text-purple-700 rounded-xl border border-purple-200 shadow-lg">
                   <div className="flex items-center gap-2">
-                    <FaCheckCircle className="text-red-500" />
+                    <FaCheckCircle className="text-purple-500" />
                     <span>{error}</span>
                   </div>
                 </div>
@@ -656,13 +656,13 @@ const PaymentPage = () => {
                     key={planKey}
                     onClick={() => handlePlanSelect(planKey as PaymentPlan)}
                     className={`relative p-8 rounded-3xl border-2 cursor-pointer transition-all duration-500 transform hover:scale-[1.02] ${selectedPlan === planKey
-                        ? "border-red-500 bg-gradient-to-br from-red-50 to-rose-50 shadow-2xl scale-[1.02]"
-                        : "border-gray-200 bg-white hover:border-red-300 hover:shadow-xl"
+                      ? "border-purple-500 bg-gradient-to-br from-purple-50 to-indigo-50 shadow-2xl scale-[1.02]"
+                      : "border-gray-200 bg-white hover:border-purple-300 hover:shadow-xl"
                       }`}
                   >
                     {plan.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <div className="bg-gradient-to-r from-red-500 to-rose-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                        <div className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
                           <FaStar className="text-xs" />
                           Most Popular
                         </div>
@@ -693,7 +693,7 @@ const PaymentPage = () => {
 
                       <div className={`transition-all duration-300 ${selectedPlan === planKey ? "scale-100 opacity-100" : "scale-0 opacity-0"
                         }`}>
-                        <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
                           <FaCheckCircle className="text-white" />
                         </div>
                       </div>
@@ -707,8 +707,8 @@ const PaymentPage = () => {
                       <h4 className="font-semibold text-gray-900 mb-3">What's Included:</h4>
                       {plan.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <div className="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <FaCheckCircle className="text-red-600 text-xs" />
+                          <div className="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <FaCheckCircle className="text-purple-600 text-xs" />
                           </div>
                           <span className="text-gray-700 text-sm">{benefit}</span>
                         </div>
@@ -727,7 +727,7 @@ const PaymentPage = () => {
                   ref={paymentButtonRef}
                   onClick={() => initiatePayment()}
                   disabled={!selectedPlan || isPending || !selectedCohort}
-                  className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white px-12 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3 mx-auto"
+                  className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-12 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3 mx-auto"
                 >
                   {isPending ? (
                     <>
