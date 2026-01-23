@@ -70,7 +70,7 @@ const Lessons = () => {
                       <span>Available - 24/7</span>
                       <span>Mon - Sat</span>
                     </div>
-                    <button className="bg-[#FFB5B436] text-primary text-xs border-[0.5px] rounded-[4px] px-3 py-1 border-primary mt-2 sm:mt-0">
+                    <button className="bg-[#d8b4fe36] text-primary text-xs border-[0.5px] rounded-[4px] px-3 py-1 border-primary mt-2 sm:mt-0">
                       Chat Now
                     </button>
                   </div>

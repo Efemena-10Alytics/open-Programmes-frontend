@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
@@ -37,7 +37,7 @@ const LessonDetails = () => {
   const router = useRouter();
   const params = useParams();
   const courseID = params?.courseID as string;
-  
+
   const { user, userID } = useAuth();
   const queryClient = useQueryClient();
 
@@ -53,7 +53,7 @@ const LessonDetails = () => {
           position: 0,
         };
       }
-      
+
       const savedState = localStorage.getItem(STORAGE_KEY);
       if (savedState) {
         const parsedState = JSON.parse(savedState);
@@ -209,11 +209,11 @@ const LessonDetails = () => {
     if (!watchedVideos.some((video: any) => video.videoId === videoId)) {
       setWatchedVideos((prev) => [...prev, { videoId }]);
     }
-    
+
     // Silently update the user data in the background without causing a UI refresh
     if (userID) {
       // Invalidate queries but don't force an immediate refetch
-      queryClient.invalidateQueries({ 
+      queryClient.invalidateQueries({
         queryKey: ["user", userID],
         refetchType: 'none' // This prevents immediate refetch
       });
@@ -246,7 +246,7 @@ const LessonDetails = () => {
     return (
       <main className="bg-gray-100 min-h-screen w-full px-3 sm:px-4 md:px-6 py-4">
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md text-center">
-          <Lock className="w-16 h-16 mx-auto mb-4 text-red-500" />
+          <Lock className="w-16 h-16 mx-auto mb-4 text-purple-500" />
           <h2 className="text-xl font-bold text-gray-800 mb-4">
             Account Inactive
           </h2>
@@ -278,21 +278,19 @@ const LessonDetails = () => {
       <section className="flex flex-col lg:flex-row gap-4 max-w-7xl mx-auto">
         {/* Main Video Player Area - Made Sticky */}
         <div
-          className={`w-full lg:w-3/5 order-1 ${
-            showSidebar ? "lg:order-1" : "order-1"
-          }`}
+          className={`w-full lg:w-3/5 order-1 ${showSidebar ? "lg:order-1" : "order-1"
+            }`}
         >
           <div className="lg:sticky lg:top-4 bg-white p-3 sm:p-4 rounded-lg shadow-md">
             <div className="text-gray-600 text-xs sm:text-sm mb-2 truncate">
-              {`Lesson Videos > ${course?.title || "Loading..."} ${
-                currentContent.id ? `> ${currentContent.title}` : ""
-              }`}
+              {`Lesson Videos > ${course?.title || "Loading..."} ${currentContent.id ? `> ${currentContent.title}` : ""
+                }`}
             </div>
 
             <div className="aspect-video w-full">
               {currentContent.id &&
-              courseID &&
-              currentContent.type === "video" ? (
+                courseID &&
+                currentContent.type === "video" ? (
                 <CustomVimeoPlayer
                   videoUrl={currentContent.url}
                   videoId={currentContent.id}
@@ -358,7 +356,7 @@ const LessonDetails = () => {
                     <ModulePanel
                       module={module}
                       key={module.id || j}
-                      onVideoSelect={(videoId, videoUrl, videoTitle) => 
+                      onVideoSelect={(videoId, videoUrl, videoTitle) =>
                         handleVideoSelect(videoId, videoUrl, videoTitle, i)
                       }
                       watchedVideos={watchedVideos}

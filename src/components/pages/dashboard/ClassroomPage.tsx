@@ -12,12 +12,12 @@ const ClassroomPage = () => {
   const { user } = useAuth();
   const [selectedCourseIndex, setSelectedCourseIndex] = useState(0);
   const [activeTab, setActiveTab] = useState<"stream" | "class" | "manage">("stream");
-  
+
   const courses = user?.course_purchased || [];
   const selectedCourse = courses[selectedCourseIndex]?.course;
   const courseId = selectedCourse?.id;
   const cohortId = user?.cohorts?.[selectedCourseIndex]?.cohortId;
-  
+
   const isAdmin = user?.role === "ADMIN" || user?.role === "COURSE_ADMIN";
   const hasMultipleCourses = courses.length > 1;
 
@@ -66,7 +66,7 @@ const ClassroomPage = () => {
                 {selectedCourse?.title || "Select a course"}
               </p>
             </div>
-            
+
             {hasMultipleCourses && (
               <div className="mt-4 lg:mt-0">
                 <CourseSelector
@@ -85,32 +85,29 @@ const ClassroomPage = () => {
             <nav className="-mb-px flex space-x-8 px-6">
               <button
                 onClick={() => setActiveTab("stream")}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === "stream"
-                    ? "border-red-500 text-red-600"
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${activeTab === "stream"
+                    ? "border-purple-500 text-purple-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                }`}
+                  }`}
               >
                 Announcement
               </button>
               <button
                 onClick={() => setActiveTab("class")}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === "class"
-                    ? "border-red-500 text-red-600"
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${activeTab === "class"
+                    ? "border-purple-500 text-purple-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                }`}
+                  }`}
               >
                 Class
               </button>
               {isAdmin && (
                 <button
                   onClick={() => setActiveTab("manage")}
-                  className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                    activeTab === "manage"
-                      ? "border-red-500 text-red-600"
+                  className={`py-4 px-1 border-b-2 font-medium text-sm ${activeTab === "manage"
+                      ? "border-purple-500 text-purple-600"
                       : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                  }`}
+                    }`}
                 >
                   Manage
                 </button>

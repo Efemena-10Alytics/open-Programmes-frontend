@@ -7,7 +7,7 @@ import { ProtectedRoute } from "@/components/utilities/ProtectedRoute";
 
 const Spinner = () => (
   <div className="flex justify-center my-8">
-    <div className="animate-spin rounded-full h-16 w-16 border-4 border-red-500 border-t-white"></div>
+    <div className="animate-spin rounded-full h-16 w-16 border-4 border-purple-500 border-t-white"></div>
   </div>
 );
 
@@ -19,7 +19,7 @@ const FailedCross = () => (
     viewBox="0 0 64 64"
     fill="none"
   >
-    <circle cx="32" cy="32" r="32" fill="#ef4444" />
+    <circle cx="32" cy="32" r="32" fill="#a855f7" />
     <path
       d="M22 22L42 42M42 22L22 42"
       stroke="#fff"
@@ -63,11 +63,11 @@ const PaymentFailed = () => {
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center border border-red-200">
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center border border-purple-200">
         {status === "verifying" ? (
           <>
             <Spinner />
-            <h1 className="text-2xl font-bold text-red-600 mb-2">
+            <h1 className="text-2xl font-bold text-purple-600 mb-2">
               Checking Payment Status...
             </h1>
             <p className="text-gray-600">Please wait while we verify transaction</p>
@@ -85,26 +85,26 @@ const PaymentFailed = () => {
         ) : (
           <>
             <FailedCross />
-            <h1 className="text-2xl font-bold text-red-600 mb-2">
+            <h1 className="text-2xl font-bold text-purple-600 mb-2">
               {getErrorMessage()}
             </h1>
             <p className="text-gray-600 mb-4">
               Reference: {reference || "N/A"}
             </p>
-            
+
             <div className="space-y-4">
               <button
                 onClick={() => router.push("/courses")}
-                className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold
-                  hover:bg-red-600 transition-colors"
+                className="w-full bg-purple-500 text-white py-3 rounded-lg font-semibold
+                  hover:bg-purple-600 transition-colors"
               >
                 Retry Payment
               </button>
-              
+
               <button
                 onClick={() => router.push("/support")}
-                className="w-full border border-red-500 text-red-500 py-3 rounded-lg
-                  font-semibold hover:bg-red-50 transition-colors"
+                className="w-full border border-purple-500 text-purple-500 py-3 rounded-lg
+                  font-semibold hover:bg-purple-50 transition-colors"
               >
                 Contact Support
               </button>
