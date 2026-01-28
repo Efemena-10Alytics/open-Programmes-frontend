@@ -42,9 +42,6 @@ const CourseDetails = () => {
     queryFn: fetchCourse,
   });
 
-  const videoId = course?.course_preview_video.split("v=")[1];
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-
   console.log("user", user);
   console.log("course", course);
 
@@ -71,9 +68,9 @@ const CourseDetails = () => {
               <p className="lg:text-[20px] font-light leading-6 mb-4">
                 {course?.description}
               </p>
-              <div className="lg:w-[70%] flex items-center flex-wrap gap-2 mb-3">
-                {course?.catalog_header_tags?.map((item, i) => {
-                  return (
+              {course?.catalog_header_tags && course.catalog_header_tags.length > 0 && (
+                <div className="lg:w-[70%] flex items-center flex-wrap gap-2 mb-3">
+                  {course.catalog_header_tags.map((item, i) => (
                     <div
                       key={i}
                       className="bg-[#1C1C1C] w-fit rounded-full p-2 font-light flex items-center gap-2 text-[12px]"
@@ -81,9 +78,9 @@ const CourseDetails = () => {
                       <img src={item.imageUrl} alt="" />
                       <span>{item.title}</span>
                     </div>
-                  );
-                })}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="bg-[#FFFFFF] w-[315px] flex items-center justify-between border-[2px] border-[#E9D5FF] rounded-[86px] p-1">
               <img src="/svg/43.svg" alt="" />
@@ -100,28 +97,34 @@ const CourseDetails = () => {
               </Link>
             </div>
           </div>
-          <img src={course?.catalog_header_image} alt="" className="" />
+          {course?.catalog_header_image && (
+            <img src={course.catalog_header_image} alt="" className="" />
+          )}
         </div>
       </section>
 
       <section className="w-11/12 mx-auto py-[60px]">
         <div className="flex flex-wrap gap-10">
           <div className="flex flex-col w-full justify-between gap-4 lg:flex-[0.31]">
-            <div
-              className="relative w-full cursor-pointer"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <img src={course?.imageUrl} alt="" className="w-full" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img src="/svg/play2.svg" alt="Play" className="w-16 h-16" />
+            {course?.course_preview_video && (
+              <div
+                className="relative w-full cursor-pointer"
+                onClick={() => setIsModalOpen(true)}
+              >
+                <img src={course?.imageUrl} alt="" className="w-full" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <img src="/svg/play2.svg" alt="Play" className="w-16 h-16" />
+                </div>
               </div>
-            </div>
+            )}
             <div className="flex items-center gap-3 font-bold">
-              <DownloadButton
-                fileId={extractFileIdFromGoogleLink(course?.brochureUrl)}
-                label="Download Brochure"
-                downloadingLabel="Downloading..."
-              />
+              {course?.brochureUrl && (
+                <DownloadButton
+                  fileId={extractFileIdFromGoogleLink(course.brochureUrl)}
+                  label="Download Brochure"
+                  downloadingLabel="Downloading..."
+                />
+              )}
 
               {/* CHANGED: Link uses href instead of to */}
               <Link
@@ -162,7 +165,7 @@ const CourseDetails = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <img src="/svg/time.svg" alt="" />
-                    <span>{course?.course_duration}</span>
+                    <span>{course?.course_duration || "Duration TBD"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <img src="/svg/certificate2.svg" alt="" className="h-4" />
@@ -183,7 +186,7 @@ const CourseDetails = () => {
 
                   <div className="flex items-center gap-2">
                     <img src="/svg/user.svg" alt="" />
-                    <span>{course?.course_instructor_name}</span>
+                    <span>{course?.course_instructor_name || "Instructor"}</span>
                   </div>
                 </div>
               </div>
@@ -194,16 +197,20 @@ const CourseDetails = () => {
 
       <section className="w-11/12 flex flex-wrap justify-between gap-12 mx-auto py-[60px]">
         <div className="lg:flex-[0.7] flex flex-col gap-4">
-          {course?.course_weeks?.map((week, i) => {
-            return <CourseWeekPanel week={week} key={i} />;
-          })}
-          <div className="rounded-[10px] border border-[#EEEEEE]  px-1 py-3 mt-16 text-[#828282] font-light">
-            <span className="text-[#6c3d3d] text-[20px] font-bold">
-              Learning Outcomes
-            </span>
-            <div className=" bg-[#F9FAFB] flex flex-col gap-3 p-2 mt-2">
-              {course?.learning_Outcomes?.map((item, i) => {
-                return (
+          {course?.course_weeks && course.course_weeks.length > 0 ? (
+            course.course_weeks.map((week, i) => (
+              <CourseWeekPanel week={week} key={i} />
+            ))
+          ) : (
+            <div className="text-gray-500 text-center py-8">No course weeks available yet.</div>
+          )}
+          {course?.learning_Outcomes && course.learning_Outcomes.length > 0 && (
+            <div className="rounded-[10px] border border-[#EEEEEE]  px-1 py-3 mt-16 text-[#828282] font-light">
+              <span className="text-[#6c3d3d] text-[20px] font-bold">
+                Learning Outcomes
+              </span>
+              <div className=" bg-[#F9FAFB] flex flex-col gap-3 p-2 mt-2">
+                {course.learning_Outcomes.map((item, i) => (
                   <div
                     key={i}
                     className="bg-white flex gap-2 leading-[20px] p-2"
@@ -211,20 +218,20 @@ const CourseDetails = () => {
                     <FaRegCircleCheck className="text-primary shrink-0" />
                     <span>{item.content}</span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="lg:flex-[0.3] flex flex-col gap-12">
-          <div className="rounded-[10px] border border-[#EEEEEE]  px-1 py-3 text-[#828282] font-light">
-            <span className="text-[#333333] text-[24px] font-bold">
-              Prerequisites
-            </span>
-            <div className=" bg-[#F9FAFB] flex flex-col gap-3 p-2 mt-2">
-              {course?.prerequisites?.map((item, i) => {
-                return (
+          {course?.prerequisites && course.prerequisites.length > 0 && (
+            <div className="rounded-[10px] border border-[#EEEEEE]  px-1 py-3 text-[#828282] font-light">
+              <span className="text-[#333333] text-[24px] font-bold">
+                Prerequisites
+              </span>
+              <div className=" bg-[#F9FAFB] flex flex-col gap-3 p-2 mt-2">
+                {course.prerequisites.map((item, i) => (
                   <div
                     key={i}
                     className="bg-white flex gap-2 leading-[20px] p-2"
@@ -232,31 +239,31 @@ const CourseDetails = () => {
                     <FaRegCircleCheck className="text-primary shrink-0" />
                     <span>{item.content}</span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           <div className="bg-[#F9FAFB] border border-[#EEEEEE] p-2 rounded-[10px]">
             <span className="text-[#333333] text-[24px] font-bold">
               Certification
             </span>
             <img src="/img/certificate.png" alt="" className="mt-2 w-full" />
           </div>
-          <div className="border border-[#EEEEEE] p-2 rounded-[10px]">
-            <span className="text-[#333333] text-[24px] font-bold uppercase">
-              Tags
-            </span>
+          {course?.tags && course.tags.length > 0 && (
+            <div className="border border-[#EEEEEE] p-2 rounded-[10px]">
+              <span className="text-[#333333] text-[24px] font-bold uppercase">
+                Tags
+              </span>
 
-            <div className="flex gap-1 flex-wrap">
-              {course?.tags?.map((item, i) => {
-                return (
+              <div className="flex gap-1 flex-wrap">
+                {course.tags.map((item, i) => (
                   <div key={i} className="flex gap-1 flex-wrap">
                     <TagLabel text={item.content} bgColor="#F9FAFB" />
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -327,73 +334,79 @@ const CourseDetails = () => {
       </section>
 
       <section className="w-11/12 mx-auto py-[100px]">
-        <div className="flex flex-col gap-7 border border-[#C4B5FD] rounded-[24px] p-10">
-          <h2 className="text-[#333333] text-[24px] font-bold">
-            About the Instructor
-          </h2>
+        {(course?.course_instructor_name || course?.course_instructor_image || course?.course_instructor_description) && (
+          <div className="flex flex-col gap-7 border border-[#C4B5FD] rounded-[24px] p-10">
+            <h2 className="text-[#333333] text-[24px] font-bold">
+              About the Instructor
+            </h2>
 
-          <div className="flex items-center justify-between gap-2  border-t border-b border-[#E6E6E6] py-6">
-            <div className="flex items-center">
-              <div className="flex gap-2">
-                <img
-                  src={course?.course_instructor_image}
-                  alt=""
-                  className="h-10 w-10 rounded-full object-cover"
-                />
-                <div className="flex flex-col">
-                  <span className="text-[14px] font-bold">
-                    {course?.course_instructor_name}
-                  </span>
-                  <span className="text-[12px] font-light">
-                    {course?.course_instructor_title}
-                  </span>
+            <div className="flex items-center justify-between gap-2  border-t border-b border-[#E6E6E6] py-6">
+              <div className="flex items-center">
+                <div className="flex gap-2">
+                  {course?.course_instructor_image && (
+                    <img
+                      src={course.course_instructor_image}
+                      alt=""
+                      className="h-10 w-10 rounded-full object-cover"
+                    />
+                  )}
+                  <div className="flex flex-col">
+                    <span className="text-[14px] font-bold">
+                      {course?.course_instructor_name || "Instructor"}
+                    </span>
+                    {course?.course_instructor_title && (
+                      <span className="text-[12px] font-light">
+                        {course.course_instructor_title}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center text-[#FFD705] text-[18px]">
+                  <TiStarFullOutline />
+                  <TiStarFullOutline />
+                  <TiStarFullOutline />
+                  <TiStarFullOutline />
+                  <TiStarFullOutline className="text-[#F0F0F0]" />
+                </div>
+                <span className="text-[#333333] text-[12px] font-light">
+                  4.5 Instructor Rating
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col justify-between text-[#828282BA] text-[12px] font-light">
+              <div className="flex items-center justify-between gap-2 lg:gap-0">
+                <div className="flex flex-wrap items-center gap-3">
+                  <img src="/svg/play.svg" alt="" />
+                  <span>5 Courses</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <img src="/svg/book2.svg" alt="" />
+                  <span>1000+ Lessons</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <img src="/svg/timer.svg" alt="" />
+                  <span>800hrs 30mins</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <img src="/svg/users.svg" alt="" />
+                  <span>18000+ Students Trained</span>
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center text-[#FFD705] text-[18px]">
-                <TiStarFullOutline />
-                <TiStarFullOutline />
-                <TiStarFullOutline />
-                <TiStarFullOutline />
-                <TiStarFullOutline className="text-[#F0F0F0]" />
-              </div>
-              <span className="text-[#333333] text-[12px] font-light">
-                4.5 Instructor Rating
-              </span>
+            <div className="flex flex-col gap-3 text-[#828282BA] text-[14px] font-light">
+              {course?.course_instructor_description &&
+                typeof course.course_instructor_description === "string"
+                ? parse(course.course_instructor_description)
+                : "No instructor description available."}
             </div>
           </div>
-          <div className="flex flex-col justify-between text-[#828282BA] text-[12px] font-light">
-            <div className="flex items-center justify-between gap-2 lg:gap-0">
-              <div className="flex flex-wrap items-center gap-3">
-                <img src="/svg/play.svg" alt="" />
-                <span>5 Courses</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-3">
-                <img src="/svg/book2.svg" alt="" />
-                <span>1000+ Lessons</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-3">
-                <img src="/svg/timer.svg" alt="" />
-                <span>800hrs 30mins</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-3">
-                <img src="/svg/users.svg" alt="" />
-                <span>18000+ Students Trained</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-3 text-[#828282BA] text-[14px] font-light">
-            {course?.course_instructor_description &&
-              typeof course.course_instructor_description === "string"
-              ? parse(course.course_instructor_description)
-              : "No instructor description available."}
-          </div>
-        </div>
+        )}
       </section>
 
       {/* Modal for Video */}
-      {isModalOpen && (
+      {isModalOpen && course?.course_preview_video && (
         <VideoPopup
           videoSrc={getYouTubeEmbedUrl(course.course_preview_video) || ""}
           onClose={() => setIsModalOpen(false)}

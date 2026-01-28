@@ -32,7 +32,7 @@ const HelpCenter = () => {
         <div className="flex flex-col gap-4 pt-[40px] pl-[40px]">
           <h1 className="text-[32px] font-bold leading-[40px]">Help Center</h1>
           <p className="text-[20px] font-light leading-[25px]">
-            Advice and answers from the nebiant team.
+            Advice and answers from the 10Alytics Business team.
           </p>
           <button
             className={

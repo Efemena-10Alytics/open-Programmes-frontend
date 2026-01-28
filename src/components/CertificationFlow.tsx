@@ -73,7 +73,7 @@ const CertificationFlow = () => {
                     activeView.ncda ? "text-white" : "text-[#828282]"
                   }  font-bold`}
                 >
-                  Nebiant Certified Data Analyst (NCDA){" "}
+                  10Alytics Business Certified Data Analyst (NCDA){" "}
                 </h3>
 
                 {activeView.ncda && (
@@ -104,7 +104,7 @@ const CertificationFlow = () => {
                     activeView.ncds ? "text-white" : "text-[#828282]"
                   }  font-bold`}
                 >
-                  Nebiant Certified Data Scientist (NCDS)
+                  10Alytics Business Certified Data Scientist (NCDS)
                 </h3>
                 {activeView.ncds && (
                   <p>
@@ -134,7 +134,7 @@ const CertificationFlow = () => {
                     activeView.ncba ? "text-white" : "text-[#828282]"
                   }  font-bold`}
                 >
-                  Nebiant Certified Business Analyst (NCBA)
+                  10Alytics Business Certified Business Analyst (NCBA)
                 </h3>
                 {activeView.ncba && (
                   <p>
