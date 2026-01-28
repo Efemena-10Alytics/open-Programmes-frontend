@@ -14,6 +14,7 @@ import { signup, login } from "../../../lib/auth";
 import { setTokens } from "../../../lib/tokenStorage";
 import GoogleOAuth from "../../auth/GoogleOAuth";
 import Logo from "../../10alytics";
+import LoadingOverlay from "../../utilities/LoadingOverlay";
 
 const Signup = () => {
   const { login: authLogin } = useAuth();
@@ -177,66 +178,69 @@ const Signup = () => {
                   }}
                 >
                   {({ isSubmitting, values }) => (
-                    <Form className="flex flex-col gap-1">
-                      <TextInput
-                        name="name"
-                        type="text"
-                        placeholder="Full name"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        icon="svg/case.svg"
-                      />
-                      <TextInput
-                        name="email"
-                        type="email"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        placeholder="Email Address"
-                        icon="svg/email.svg"
-                      />
-                      <TextInput
-                        name="phone_number"
-                        type="text"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        placeholder="Phone Number"
-                        icon="svg/phone.svg"
-                      />{" "}
-                      <TextInput
-                        name="password"
-                        type="password"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        placeholder="Password"
-                        icon="svg/password.svg"
-                        showPasswordToggle={true}
-                      />
-                      <PasswordCheck password={values.password} />{" "}
-                      <TextInput
-                        name="re_password"
-                        type="password"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        placeholder="Confirm Password"
-                        icon="svg/password.svg"
-                        showPasswordToggle={true}
-                      />
-                      <button
-                        type="submit"
-                        // onClick={() =>
-                        //   setActiveView({
-                        //     ...activeView,
-                        //     form: false,
-                        //     confirmEmail: true,
-                        //   })
-                        // }
-                        className="bg-primary w-full flex justify-center items-center text-white border-2 border-[#FFFFFF3D] rounded-[10px] p-3 text-[14px] font-bold"
-                      >
-                        {isSubmitting
-                          ? "Creating account..."
-                          : "Create Account"}
-                      </button>
-                    </Form>
+                    <>
+                      {isSubmitting && <LoadingOverlay message="Creating your account..." />}
+                      <Form className="flex flex-col gap-1">
+                        <TextInput
+                          name="name"
+                          type="text"
+                          placeholder="Full name"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          icon="svg/case.svg"
+                        />
+                        <TextInput
+                          name="email"
+                          type="email"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          placeholder="Email Address"
+                          icon="svg/email.svg"
+                        />
+                        <TextInput
+                          name="phone_number"
+                          type="text"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          placeholder="Phone Number"
+                          icon="svg/phone.svg"
+                        />{" "}
+                        <TextInput
+                          name="password"
+                          type="password"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          placeholder="Password"
+                          icon="svg/password.svg"
+                          showPasswordToggle={true}
+                        />
+                        <PasswordCheck password={values.password} />{" "}
+                        <TextInput
+                          name="re_password"
+                          type="password"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          placeholder="Confirm Password"
+                          icon="svg/password.svg"
+                          showPasswordToggle={true}
+                        />
+                        <button
+                          type="submit"
+                          // onClick={() =>
+                          //   setActiveView({
+                          //     ...activeView,
+                          //     form: false,
+                          //     confirmEmail: true,
+                          //   })
+                          // }
+                          className="bg-primary w-full flex justify-center items-center text-white border-2 border-[#FFFFFF3D] rounded-[10px] p-3 text-[14px] font-bold"
+                        >
+                          {isSubmitting
+                            ? "Creating account..."
+                            : "Create Account"}
+                        </button>
+                      </Form>
+                    </>
                   )}
                 </Formik>
               </div>

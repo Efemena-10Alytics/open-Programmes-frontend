@@ -11,6 +11,7 @@ import { login } from "../../../lib/auth";
 import { setTokens } from "../../../lib/tokenStorage";
 import GoogleOAuth from "../../auth/GoogleOAuth";
 import Logo from "../../10alytics";
+import LoadingOverlay from "../../utilities/LoadingOverlay";
 
 const Login = () => {
   const { login: authLogin } = useAuth();
@@ -133,39 +134,42 @@ const Login = () => {
                   }}
                 >
                   {({ isSubmitting }) => (
-                    <Form className="flex flex-col gap-1">
-                      <TextInput
-                        name="email"
-                        type="email"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        placeholder="Email Address"
-                        icon="svg/email.svg"
-                      />
+                    <>
+                      {isSubmitting && <LoadingOverlay message="Signing you in..." />}
+                      <Form className="flex flex-col gap-1">
+                        <TextInput
+                          name="email"
+                          type="email"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          placeholder="Email Address"
+                          icon="svg/email.svg"
+                        />
 
-                      <TextInput
-                        name="password"
-                        type="password"
-                        inputClassNames={inputClassNames}
-                        containerClassNames={containerClassNames}
-                        placeholder="Password"
-                        icon="svg/password.svg"
-                        showPasswordToggle={true}
-                      />
-                      <Link
-                        href={"/forget-password"}
-                        className="flex justify-end  text-primary text-[15px] -mt-3"
-                      >
-                        Forgot Password?
-                      </Link>
+                        <TextInput
+                          name="password"
+                          type="password"
+                          inputClassNames={inputClassNames}
+                          containerClassNames={containerClassNames}
+                          placeholder="Password"
+                          icon="svg/password.svg"
+                          showPasswordToggle={true}
+                        />
+                        <Link
+                          href={"/forget-password"}
+                          className="flex justify-end  text-primary text-[15px] -mt-3"
+                        >
+                          Forgot Password?
+                        </Link>
 
-                      <button
-                        type="submit"
-                        className="bg-primary w-full flex justify-center items-center text-white border-2 border-[#FFFFFF3D] rounded-[10px] p-3 mt-3 text-[14px] font-bold"
-                      >
-                        {isSubmitting ? "Signing in..." : "Login"}
-                      </button>
-                    </Form>
+                        <button
+                          type="submit"
+                          className="bg-primary w-full flex justify-center items-center text-white border-2 border-[#FFFFFF3D] rounded-[10px] p-3 mt-3 text-[14px] font-bold"
+                        >
+                          {isSubmitting ? "Signing in..." : "Login"}
+                        </button>
+                      </Form>
+                    </>
                   )}
                 </Formik>
               </div>

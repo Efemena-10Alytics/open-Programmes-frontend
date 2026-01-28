@@ -10,6 +10,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { forgetPassword, resetPassword } from "../../../lib/auth";
 import PasswordCheck from "../../utilities/PasswordCheck";
 import { usePasswordValidation } from "../../../hooks/usePasswordValidation";
+import LoadingOverlay from "../../utilities/LoadingOverlay";
 
 type NotificationType = "success" | "info" | "warning" | "error";
 
@@ -30,20 +31,18 @@ const ForgetPassword = () => {
 
   const openNotification = (type: NotificationType) => {
     notificationApi[type]({
-      title: `${
-        type === "success"
+      title: `${type === "success"
           ? "Check your email"
           : type === "error"
-          ? "Reset failed"
-          : ""
-      }`,
-      description: `${
-        type === "success"
+            ? "Reset failed"
+            : ""
+        }`,
+      description: `${type === "success"
           ? "Please check your email, a code has been sent to you!"
           : type === "error"
-          ? "Sorry! Something went wrong. Non-existent user"
-          : ""
-      }`,
+            ? "Sorry! Something went wrong. Non-existent user"
+            : ""
+        }`,
       // duration: 0,
     });
   };
@@ -84,35 +83,38 @@ const ForgetPassword = () => {
                   openNotification("error");
                 }
               }}
-              onReset={(values) => {}}
+              onReset={(values) => { }}
             >
               {({ status, isSubmitting }) => (
-                <Form>
-                  <TextInput
-                    name="email"
-                    label="Email"
-                    labelClassNames={"block mb-2 text-[#282828]"}
-                    type="email"
-                    inputClassNames={inputClassNames}
-                    containerClassNames={containerClassNames}
-                  />
+                <>
+                  {isSubmitting && <LoadingOverlay message="Sending reset code..." />}
+                  <Form>
+                    <TextInput
+                      name="email"
+                      label="Email"
+                      labelClassNames={"block mb-2 text-[#282828]"}
+                      type="email"
+                      inputClassNames={inputClassNames}
+                      containerClassNames={containerClassNames}
+                    />
 
-                  <span className="text-xs text-primary block mb-3">
-                    {status}
-                  </span>
+                    <span className="text-xs text-primary block mb-3">
+                      {status}
+                    </span>
 
-                  <button
-                    type="submit"
-                    className="bg-primary w-full text-white p-3 rounded-sm lg:mt-8 flex items-center justify-center"
-                  >
-                    {isSubmitting ? "Reseting..." : "Reset"}
-                  </button>
-                  <div className="text-sm text-gray-700 flex mt-3 items-center justify-between gap-3">
-                    <div className="flex gap-3 items-center">
-                      <Link href={"/login"}>Sign in</Link>
+                    <button
+                      type="submit"
+                      className="bg-primary w-full text-white p-3 rounded-sm lg:mt-8 flex items-center justify-center"
+                    >
+                      {isSubmitting ? "Reseting..." : "Reset"}
+                    </button>
+                    <div className="text-sm text-gray-700 flex mt-3 items-center justify-between gap-3">
+                      <div className="flex gap-3 items-center">
+                        <Link href={"/login"}>Sign in</Link>
+                      </div>
                     </div>
-                  </div>
-                </Form>
+                  </Form>
+                </>
               )}
             </Formik>
           )}
@@ -165,52 +167,55 @@ const ForgetPassword = () => {
                   openNotification("error");
                 }
               }}
-              onReset={(values) => {}}
+              onReset={(values) => { }}
             >
               {({ status, isSubmitting, values }) => (
-                <Form>
-                  <TextInput
-                    name="code"
-                    type="text"
-                    placeholder="Code"
-                    inputClassNames={inputClassNames}
-                    containerClassNames={containerClassNames}
-                    icon="svg/case.svg"
-                  />
-                  <TextInput
-                    name="password"
-                    type="password"
-                    inputClassNames={inputClassNames}
-                    containerClassNames={containerClassNames}
-                    placeholder="Password"
-                    icon="svg/password.svg"
-                    showPasswordToggle={true}
-                  />
-                  <PasswordCheck password={values.password} />{" "}
-                  <TextInput
-                    name="password_confirmation"
-                    type="password"
-                    inputClassNames={inputClassNames}
-                    containerClassNames={containerClassNames}
-                    placeholder="Confirm Password"
-                    icon="svg/password.svg"
-                    showPasswordToggle={true}
-                  />
-                  <span className="text-xs text-primary block mb-3">
-                    {status}
-                  </span>
-                  <button
-                    type="submit"
-                    className="bg-primary w-full text-white p-3 rounded-sm lg:mt-8 flex items-center justify-center"
-                  >
-                    {isSubmitting ? "Reseting..." : "Reset"}
-                  </button>
-                  <div className="text-sm text-gray-700 flex mt-3 items-center justify-between gap-3">
-                    <div className="flex gap-3 items-center">
-                      <Link href={"/login"}>Sign in</Link>
+                <>
+                  {isSubmitting && <LoadingOverlay message="Resetting your password..." />}
+                  <Form>
+                    <TextInput
+                      name="code"
+                      type="text"
+                      placeholder="Code"
+                      inputClassNames={inputClassNames}
+                      containerClassNames={containerClassNames}
+                      icon="svg/case.svg"
+                    />
+                    <TextInput
+                      name="password"
+                      type="password"
+                      inputClassNames={inputClassNames}
+                      containerClassNames={containerClassNames}
+                      placeholder="Password"
+                      icon="svg/password.svg"
+                      showPasswordToggle={true}
+                    />
+                    <PasswordCheck password={values.password} />{" "}
+                    <TextInput
+                      name="password_confirmation"
+                      type="password"
+                      inputClassNames={inputClassNames}
+                      containerClassNames={containerClassNames}
+                      placeholder="Confirm Password"
+                      icon="svg/password.svg"
+                      showPasswordToggle={true}
+                    />
+                    <span className="text-xs text-primary block mb-3">
+                      {status}
+                    </span>
+                    <button
+                      type="submit"
+                      className="bg-primary w-full text-white p-3 rounded-sm lg:mt-8 flex items-center justify-center"
+                    >
+                      {isSubmitting ? "Reseting..." : "Reset"}
+                    </button>
+                    <div className="text-sm text-gray-700 flex mt-3 items-center justify-between gap-3">
+                      <div className="flex gap-3 items-center">
+                        <Link href={"/login"}>Sign in</Link>
+                      </div>
                     </div>
-                  </div>
-                </Form>
+                  </Form>
+                </>
               )}
             </Formik>
           )}
