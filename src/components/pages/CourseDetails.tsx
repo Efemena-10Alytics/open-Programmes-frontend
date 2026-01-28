@@ -49,6 +49,18 @@ const CourseDetails = () => {
   if (error) return <div>An error occurred: {error.message}</div>;
   if (!course) return <div>No course found</div>;
 
+  // Check if there is any available cohort that hasn't expired
+  // A cohort is available if its endDate is in the future
+  // If no endDate is present, we fallback to checking if startDate is in the future (optional, but safer to rely on endDate for expiration)
+  const hasAvailableCohort = course?.cohorts?.some(cohort => {
+    if (cohort.endDate) {
+      return new Date(cohort.endDate) > new Date();
+    }
+    // If no end date, assume valid/available (or check startDate if preferred logic)
+    // For now, assuming if no endDate it's an open matching or ongoing cohort
+    return true;
+  }) ?? false;
+
   return (
     <main>
       <section className="bg-black rounded-[24px] w-11/12 mx-auto px-6 py-10 text-white mt-6">
@@ -89,12 +101,21 @@ const CourseDetails = () => {
                 <img src="/img/students.png" alt="" />
               </div>
               {/* CHANGED: Link uses href instead of to */}
-              <Link
-                href={`/payments/${courseID}`}
-                className="flex justify-center bg-primary w-[130px] px-3 py-2 rounded-full"
-              >
-                Join Class
-              </Link>
+              {hasAvailableCohort ? (
+                <Link
+                  href={`/payments/${courseID}`}
+                  className="flex justify-center bg-primary w-[130px] px-3 py-2 rounded-full"
+                >
+                  Join Class
+                </Link>
+              ) : (
+                <button
+                  disabled
+                  className="flex justify-center bg-gray-400 cursor-not-allowed w-[130px] px-3 py-2 rounded-full text-white"
+                >
+                  No Cohort
+                </button>
+              )}
             </div>
           </div>
           {course?.catalog_header_image && (
@@ -127,12 +148,21 @@ const CourseDetails = () => {
               )}
 
               {/* CHANGED: Link uses href instead of to */}
-              <Link
-                href={`/payments/${courseID}`}
-                className="flex-[0.4] w-full flex justify-center items-center py-3 px-4 rounded-[10px] border border-primary text-primary"
-              >
-                Enroll Now
-              </Link>
+              {hasAvailableCohort ? (
+                <Link
+                  href={`/payments/${courseID}`}
+                  className="flex-[0.4] w-full flex justify-center items-center py-3 px-4 rounded-[10px] border border-primary text-primary"
+                >
+                  Enroll Now
+                </Link>
+              ) : (
+                <button
+                  disabled
+                  className="flex-[0.4] w-full flex justify-center items-center py-3 px-4 rounded-[10px] border border-gray-400 text-gray-400 cursor-not-allowed"
+                >
+                  No Cohort Available
+                </button>
+              )}
             </div>
           </div>
           <div className="lg:flex-[0.66] text-[#333333]">

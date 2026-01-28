@@ -22,6 +22,7 @@ export default interface CourseModel {
   tags: TagModel[];
   catalog_header_tags: CatalogHeaderTagModel[];
   course_weeks: CourseWeekModel[];
+  cohorts: CohortModel[];
 }
 
 export interface CohortModel {

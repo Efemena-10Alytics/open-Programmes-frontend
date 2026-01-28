@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useAuth } from "../../contexts/AuthContext";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import api from "../../lib/api";
+import CourseModel from "../../models/Course";
 import { ProtectedRoute } from "../utilities/ProtectedRoute";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -185,29 +186,33 @@ const PaymentPage = () => {
   // Ref for the payment button to scroll to
   const paymentButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Generate cohort options for the next 2 months
-  const getAvailableCohorts = () => {
-    const today = new Date();
-    const cohorts: string[] = [];
+  // Fetch course details to get real cohorts from DB
+  const { data: course } = useQuery<CourseModel>({
+    queryKey: ["course", courseId],
+    queryFn: async () => {
+      if (!courseId) return null;
+      const response = await api.get(`/api/courses/${courseId}/no-auth`);
+      return response.data.data;
+    },
+    enabled: !!courseId,
+  });
 
-    // In development, allow selecting current month (0) for testing
-    // In production, default restriction applies (starts from next month, 1)
-    // NOTE: Revert this or ensure strictly for dev before live deployment if needed, 
-    // though the ENV check handles it safely.
-    const startOffset = process.env.NEXT_PUBLIC_NODE_ENV === "development" || "production" ? 0 : 1;
-    const numberOfCohorts = 2;
-
-    for (let i = startOffset; i < startOffset + numberOfCohorts; i++) {
-      const date = new Date(today.getFullYear(), today.getMonth() + i, 1);
-      const monthName = date.toLocaleDateString('en-US', { month: 'long' });
-      const year = date.getFullYear();
-      cohorts.push(`${monthName} ${year} Cohort`);
-    }
-
-    return cohorts;
-  };
-
-  const availableCohorts = getAvailableCohorts();
+  // Process cohorts: Filter valid/future ones, sort by date, take top 3
+  const availableCohorts = (course?.cohorts || [])
+    .filter((cohort) => {
+      // Filter out expired cohorts
+      if (cohort.endDate) {
+        return new Date(cohort.endDate) > new Date();
+      }
+      // If no end date, assume valid/available
+      return true;
+    })
+    .sort(
+      (a, b) =>
+        new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+    )
+    .slice(0, 3)
+    .map((cohort) => cohort.name);
 
   const { data: existingPayment } = useQuery({
     queryKey: ["paymentStatus", courseId, user?.id],
